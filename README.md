@@ -3,7 +3,7 @@
  * [Estructuras de Datos](2GII/ED)
  * [Estructura de Computadores](2GII/EC)
  * [Programación y Diseño Orientado a Objetos](2GII/PDOO)
- * [Sistemas Concurrentes y Distribuidos](2GII/SCD)
+ * [Sistemas Concurrentes y Distribuidos](SCD)
  * [Sistemas Operativos](2GII/SO)
  * [Arquitectura de Computadores](2GII/AC)
  * [Algorítmica](2GII/AL)
