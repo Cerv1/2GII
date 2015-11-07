@@ -55,9 +55,9 @@ void* estanquero(void*){
 void* fumador_1(void*){
 	while(true){
 		sem_wait(&sem_fumadores[0]);
-		sem_post(&sem_estanquero);
 		cout << "El fumador [1] coge las cerillas y fuma." << endl;
 		fumar();
+		sem_post(&sem_estanquero);
 	}
 
 
@@ -66,9 +66,9 @@ void* fumador_1(void*){
 void* fumador_2(void*){
 	while(true){
 		sem_wait(&sem_fumadores[1]);
-		sem_post(&sem_estanquero);
 		cout << "El fumador [2] coge el tabaco y fuma." << endl;
 		fumar();
+		sem_post(&sem_estanquero);
 	}
 
 
@@ -77,9 +77,9 @@ void* fumador_2(void*){
 void* fumador_3(void*){
 	while(true){
 		sem_wait(&sem_fumadores[2]);
-		sem_post(&sem_estanquero);
 		cout << "El fumador [3] coge el papel y fuma." << endl;
 		fumar();
+		sem_post(&sem_estanquero);
 	}
 
 
