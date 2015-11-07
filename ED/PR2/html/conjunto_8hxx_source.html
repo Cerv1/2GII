@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>CONJUNTO de DELITOS: Fichero Fuente conjunto.hxx</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">CONJUNTO de DELITOS
+   &#160;<span id="projectnumber">V0</span>
+   </div>
+   <div id="projectbrief">Conjunto Ordenado de Crimenes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">conjunto.hxx</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="conjunto_8hxx.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// conjunto.hxx</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Implementación de los métodos de la clase Conjunto</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="conjunto_8h.html">conjunto.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="crimen_8h.html">crimen.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fecha_8h.html">fecha.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classconjunto.html#a16d987f42c679efab01748178ba45891">   13</a></span>&#160;    <a class="code" href="classconjunto.html#a16d987f42c679efab01748178ba45891">conjunto::conjunto</a>(){</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.resize(0);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classconjunto.html#ab0944b1f9a0c959ca314ce0debd5def9">   20</a></span>&#160;    <a class="code" href="classconjunto.html#a16d987f42c679efab01748178ba45891">conjunto::conjunto</a>(<span class="keyword">const</span> <a class="code" href="classconjunto.html">conjunto</a> &amp; d){</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">this</span>!=&amp;d)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>=d.<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classconjunto.html#a59dbe5ddea85ffa52e4037e82c28b139">   37</a></span>&#160;    pair&lt;conjunto::entrada,bool&gt; <a class="code" href="classconjunto.html#a59dbe5ddea85ffa52e4037e82c28b139">conjunto::find</a>(<span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> &amp; <span class="keywordtype">id</span>)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        pair&lt;conjunto::entrada,bool&gt; aux;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classconjunto.html#af67e76aaf3510123b7c0b549e37d7beb">ExisteElemento</a>(<span class="keywordtype">id</span>)!=-1){</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            aux.first=<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[<a class="code" href="classconjunto.html#af67e76aaf3510123b7c0b549e37d7beb">ExisteElemento</a>(<span class="keywordtype">id</span>)];</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            aux.second=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            aux.first=<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[0];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            aux.second=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> aux;                 </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classconjunto.html#a2ca2a7b59bce8369e9d9ccc1c7be9614">   62</a></span>&#160;    <a class="code" href="classconjunto.html">conjunto</a> <a class="code" href="classconjunto.html#a2ca2a7b59bce8369e9d9ccc1c7be9614">conjunto::findIUCR</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp; iucr)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classconjunto.html">conjunto</a> SimilIUCR;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">size</a>(); i++){</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span>(iucr == <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i].getIUCR())</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                SimilIUCR.<a class="code" href="classconjunto.html#aa65b9f7c4cb9bad6d4e40c1973095930">insert</a>(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i]);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> SimilIUCR;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classconjunto.html#afff3e7f4b3d00f422dd7ab2fec935378">   82</a></span>&#160;    <a class="code" href="classconjunto.html">conjunto</a>  <a class="code" href="classconjunto.html#afff3e7f4b3d00f422dd7ab2fec935378">conjunto::findDESCR</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp; descr)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="classconjunto.html">conjunto</a> SimilDescr;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">size</a>(); i++){</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">if</span>(descr == <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i].getDescription())</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                SimilDescr.<a class="code" href="classconjunto.html#aa65b9f7c4cb9bad6d4e40c1973095930">insert</a>(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i]);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> SimilDescr;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classconjunto.html#aa65b9f7c4cb9bad6d4e40c1973095930">   98</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classconjunto.html#aa65b9f7c4cb9bad6d4e40c1973095930">conjunto::insert</a>(<span class="keyword">const</span> <a class="code" href="classcrimen.html">conjunto::entrada</a> &amp; e){</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">bool</span> no_esta=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;this-&gt;<a class="code" href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">size</a>() &amp;&amp; no_esta; i++){</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i].getID()==e.<a class="code" href="classcrimen.html#aa33f92f889c7f1815ed4bfd56c578bce">getID</a>())</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                no_esta=<span class="keyword">false</span>;  </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }       </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">if</span>(no_esta){</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.push_back(e);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }       </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> no_esta;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classconjunto.html#ad550177fa4454da3a10fa356417e39a7">  117</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classconjunto.html#ad550177fa4454da3a10fa356417e39a7">conjunto::erase</a>(<span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> &amp; <span class="keywordtype">id</span>){</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">bool</span> result=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classconjunto.html#af67e76aaf3510123b7c0b549e37d7beb">ExisteElemento</a>(<span class="keywordtype">id</span>) != -1){</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.erase(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.begin()+<a class="code" href="classconjunto.html#af67e76aaf3510123b7c0b549e37d7beb">ExisteElemento</a>(<span class="keywordtype">id</span>));</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            result=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }       </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classconjunto.html#a77a21ed91f1002f4eaed48d86535a874">  133</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classconjunto.html#ad550177fa4454da3a10fa356417e39a7">conjunto::erase</a>(<span class="keyword">const</span> <a class="code" href="classcrimen.html">conjunto::entrada</a> &amp; e){</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classconjunto.html#ad550177fa4454da3a10fa356417e39a7">erase</a>(e.<a class="code" href="classcrimen.html#aa33f92f889c7f1815ed4bfd56c578bce">getID</a>());        </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;         </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="classconjunto.html#a052fe2f4e16d01b54a86b90d7c8d5b25">  142</a></span>&#160;    <a class="code" href="classconjunto.html">conjunto</a> &amp; <a class="code" href="classconjunto.html#a052fe2f4e16d01b54a86b90d7c8d5b25">conjunto::operator=</a>(<span class="keyword">const</span> <a class="code" href="classconjunto.html">conjunto</a> &amp; org){</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>=org.<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">  150</a></span>&#160;    <a class="code" href="classconjunto.html#a855a5893bb0f5a851ab2dbf2b8aa6cc7">conjunto::size_type</a> <a class="code" href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">conjunto::size</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.size();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="classconjunto.html#afcf4ff3ff3c1f83b63e901efebe93533">  158</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classconjunto.html#afcf4ff3ff3c1f83b63e901efebe93533">conjunto::empty</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.size()==0)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classconjunto.html#adb0ff15cf65817b0b279bae4bf06decb">  169</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classconjunto.html#adb0ff15cf65817b0b279bae4bf06decb">conjunto::cheq_rep</a>( )<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordtype">bool</span> state=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.size() &amp;&amp; state==<span class="keyword">true</span>; i++){</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i].getID() &lt;= 0)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                state=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">size</a>()-1 &amp;&amp; state==<span class="keyword">true</span>; i++){</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i].getID() &gt;= <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[i+1].getID())</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                state=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">return</span> state;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classconjunto.html#af67e76aaf3510123b7c0b549e37d7beb">  188</a></span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="classconjunto.html#af67e76aaf3510123b7c0b549e37d7beb">conjunto::ExisteElemento</a>(<span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> &amp;ID)<span class="keyword">const</span>{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordtype">bool</span> encontrado=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">int</span> inicio = 0, centro, fin = <a class="code" href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">size</a>() - 1;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">while</span> (inicio &lt;= fin &amp;&amp; !encontrado) {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            centro = (inicio + fin) / 2;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">if</span> (ID == <a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[centro].getID())       </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                encontrado=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>[centro].getID() &gt; ID)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                fin = centro - 1;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;             <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                inicio = centro + 1;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        } </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">if</span>(encontrado)</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordflow">return</span> centro;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordflow">return</span> -1;      </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classconjunto.html#a77dbe7bf388e5688e108853daa371188">  207</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classconjunto.html#a77dbe7bf388e5688e108853daa371188">conjunto::Ordena</a>(){</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        sort(<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.begin(),<a class="code" href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">vc</a>.end());</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
+<div class="ttc" id="classconjunto_html_a052fe2f4e16d01b54a86b90d7c8d5b25"><div class="ttname"><a href="classconjunto.html#a052fe2f4e16d01b54a86b90d7c8d5b25">conjunto::operator=</a></div><div class="ttdeci">conjunto &amp; operator=(const conjunto &amp;org)</div><div class="ttdoc">operador de asignación </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:142</div></div>
+<div class="ttc" id="classconjunto_html_aed485e92bb3d8b2c82fc85657947761d"><div class="ttname"><a href="classconjunto.html#aed485e92bb3d8b2c82fc85657947761d">conjunto::vc</a></div><div class="ttdeci">vector&lt; crimen &gt; vc</div><div class="ttdef"><b>Definition:</b> conjunto.h:161</div></div>
+<div class="ttc" id="classconjunto_html_a16d987f42c679efab01748178ba45891"><div class="ttname"><a href="classconjunto.html#a16d987f42c679efab01748178ba45891">conjunto::conjunto</a></div><div class="ttdeci">conjunto()</div><div class="ttdoc">constructor primitivo. </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:13</div></div>
+<div class="ttc" id="conjunto_8h_html"><div class="ttname"><a href="conjunto_8h.html">conjunto.h</a></div></div>
+<div class="ttc" id="classcrimen_html"><div class="ttname"><a href="classcrimen.html">crimen</a></div><div class="ttdoc">Clase crimen, asociada a la definición de un crimen. </div><div class="ttdef"><b>Definition:</b> crimen.h:24</div></div>
+<div class="ttc" id="classconjunto_html_adb0ff15cf65817b0b279bae4bf06decb"><div class="ttname"><a href="classconjunto.html#adb0ff15cf65817b0b279bae4bf06decb">conjunto::cheq_rep</a></div><div class="ttdeci">bool cheq_rep() const </div><div class="ttdoc">Chequea el Invariante de la representacion. </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:169</div></div>
+<div class="ttc" id="classconjunto_html"><div class="ttname"><a href="classconjunto.html">conjunto</a></div><div class="ttdoc">Clase conjunto. </div><div class="ttdef"><b>Definition:</b> conjunto.h:54</div></div>
+<div class="ttc" id="classcrimen_html_aa33f92f889c7f1815ed4bfd56c578bce"><div class="ttname"><a href="classcrimen.html#aa33f92f889c7f1815ed4bfd56c578bce">crimen::getID</a></div><div class="ttdeci">long int getID() const </div><div class="ttdoc">Obtener el ID de un crimen. </div><div class="ttdef"><b>Definition:</b> crimen.hxx:117</div></div>
+<div class="ttc" id="classconjunto_html_a77dbe7bf388e5688e108853daa371188"><div class="ttname"><a href="classconjunto.html#a77dbe7bf388e5688e108853daa371188">conjunto::Ordena</a></div><div class="ttdeci">void Ordena()</div><div class="ttdef"><b>Definition:</b> conjunto.hxx:207</div></div>
+<div class="ttc" id="classconjunto_html_ad550177fa4454da3a10fa356417e39a7"><div class="ttname"><a href="classconjunto.html#ad550177fa4454da3a10fa356417e39a7">conjunto::erase</a></div><div class="ttdeci">bool erase(const long int &amp;id)</div><div class="ttdoc">Borra el delito dado un identificador. Busca la entrada con id en el conjunto y si la encuentra la bo...</div><div class="ttdef"><b>Definition:</b> conjunto.hxx:117</div></div>
+<div class="ttc" id="classconjunto_html_af67e76aaf3510123b7c0b549e37d7beb"><div class="ttname"><a href="classconjunto.html#af67e76aaf3510123b7c0b549e37d7beb">conjunto::ExisteElemento</a></div><div class="ttdeci">long int ExisteElemento(const long int &amp;ID) const </div><div class="ttdoc">Comprueba la existencia de un elemento del conjunto. </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:188</div></div>
+<div class="ttc" id="classconjunto_html_a52ce2f5a076772be81f7d9bf0c22a558"><div class="ttname"><a href="classconjunto.html#a52ce2f5a076772be81f7d9bf0c22a558">conjunto::size</a></div><div class="ttdeci">size_type size() const </div><div class="ttdoc">numero de entradas en el conjunto </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:150</div></div>
+<div class="ttc" id="crimen_8h_html"><div class="ttname"><a href="crimen_8h.html">crimen.h</a></div></div>
+<div class="ttc" id="classconjunto_html_a2ca2a7b59bce8369e9d9ccc1c7be9614"><div class="ttname"><a href="classconjunto.html#a2ca2a7b59bce8369e9d9ccc1c7be9614">conjunto::findIUCR</a></div><div class="ttdeci">conjunto findIUCR(const string &amp;iucr) const </div><div class="ttdoc">busca los crimenes con el mismo codigo IUCR </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:62</div></div>
+<div class="ttc" id="classconjunto_html_a855a5893bb0f5a851ab2dbf2b8aa6cc7"><div class="ttname"><a href="classconjunto.html#a855a5893bb0f5a851ab2dbf2b8aa6cc7">conjunto::size_type</a></div><div class="ttdeci">unsigned int size_type</div><div class="ttdoc">size_type numero de elementos en el conjunto </div><div class="ttdef"><b>Definition:</b> conjunto.h:64</div></div>
+<div class="ttc" id="classconjunto_html_a59dbe5ddea85ffa52e4037e82c28b139"><div class="ttname"><a href="classconjunto.html#a59dbe5ddea85ffa52e4037e82c28b139">conjunto::find</a></div><div class="ttdeci">pair&lt; conjunto::entrada, bool &gt; find(const long int &amp;id) const </div><div class="ttdoc">busca un crimen en el conjunto </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:37</div></div>
+<div class="ttc" id="classconjunto_html_aa65b9f7c4cb9bad6d4e40c1973095930"><div class="ttname"><a href="classconjunto.html#aa65b9f7c4cb9bad6d4e40c1973095930">conjunto::insert</a></div><div class="ttdeci">bool insert(const conjunto::entrada &amp;e)</div><div class="ttdoc">Inserta una entrada en el conjunto. </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:98</div></div>
+<div class="ttc" id="classconjunto_html_afff3e7f4b3d00f422dd7ab2fec935378"><div class="ttname"><a href="classconjunto.html#afff3e7f4b3d00f422dd7ab2fec935378">conjunto::findDESCR</a></div><div class="ttdeci">conjunto findDESCR(const string &amp;descr) const </div><div class="ttdoc">busca los crimenes que contienen una determinada descripcion </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:82</div></div>
+<div class="ttc" id="fecha_8h_html"><div class="ttname"><a href="fecha_8h.html">fecha.h</a></div></div>
+<div class="ttc" id="classconjunto_html_afcf4ff3ff3c1f83b63e901efebe93533"><div class="ttname"><a href="classconjunto.html#afcf4ff3ff3c1f83b63e901efebe93533">conjunto::empty</a></div><div class="ttdeci">bool empty() const </div><div class="ttdoc">Chequea si el conjunto esta vacio. </div><div class="ttdef"><b>Definition:</b> conjunto.hxx:158</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>
