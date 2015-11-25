@@ -14,6 +14,16 @@ class Estanco extends AbstractMonitor{
       estanquero = makeCondition();
     }
 
+    //                   .==.        .==.
+    //                  //`^\\      //^`\\
+    //                 // ^ ^\(\__/)/^ ^^\\
+    //                //^ ^^ ^/6  6\ ^^ ^ \\
+    //               //^ ^^ ^/( .. )\^ ^ ^ \\
+    //              // ^^ ^/\| v""v |/\^ ^ ^\\
+    //             // ^^/\/ /  `~~`  \ \/\^ ^\\
+    //            -----------------------------
+    ///                YOU SHALL NOT PASS!
+
   //Invocado por cada fumador, indicando su ingrediente o número.
   public void obtenerIngrediente(int miIngrediente){
     enter();
