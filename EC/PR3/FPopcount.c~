@@ -1,0 +1,275 @@
+/*
+Alumno: José Antonio Córdoba Gómez
+Curso: 2015 - 2016
+Grupo: A1
+2º Grado Ingeniería Informática
+Compilación: gcc -m32 popcount.c -o popcount
+*/
+#define TEST 1
+#define COPY_PASTE_CALC 0
+
+#if ! TEST
+    #define NBITS 20
+    #define SIZE (1<<NBITS) // Tamaño suficiente para un tiempo apreciable
+    unsigned lista[SIZE] ;   //Unsigned para que deplazamiento a la derechas sea lógico
+    #define RESULT (NBITS*(1<<NBITS-1)) //nueva fórmula
+
+#else
+    /* --------------------------------------------------------------- * /
+    #define SIZE 4
+    unsigned lista[SIZE]={0x80000000, 0x00100000, 0x00000800, 0x00000001}; // EL popcount de este array es 4
+    #define RESULT 4
+
+     /* --------------------------------------------------------------- */
+
+    #define SIZE 8
+    unsigned lista[SIZE]={0x7fffffff, 0xffefffff, 0xfffff7ff, 0xfffffffe,
+                      0x01000024, 0x00356700, 0x8900ac00, 0x00bd00ef};
+    #define RESULT 8
+
+    /* --------------------------------------------------------------- * /
+
+    #define SIZE 8
+    unsigned lista[SIZE]={0x0 , 0x10204080, 0x3590ac06, 0x70b0d0e0,
+                      0xffffffff, 0x12345678, 0x9abcdef0, 0xcafebeef};
+    #define RESULT 2
+
+     /* ---------------------------------------------------------------- */
+
+#endif
+
+#include <stdio.h>	// para printf()
+#include <stdlib.h>	// para exit()
+#include <sys/time.h>	// para gettimeofday(), struct timeval
+
+int resultado = 0;
+
+int popcount1(unsigned* array, int len) {
+    int i, k;
+    int result = 0;
+    for (k = 0; k < len; k++)
+            for (i = 0; i < 8*sizeof(unsigned); i++) {
+                    unsigned mask = 1 << i;
+                    result += (array[k] & mask) != 0;
+            }
+    return result;
+}
+
+int popcount2(unsigned* array, int len) {
+    int result = 0;
+    int i;
+    unsigned x;
+    for (i = 0; i < len; i++) {
+            x = array[i];
+            while (x) {
+                    result += x & 0x1;
+                    x >>= 1;
+            }
+    }
+    return result;
+}
+
+int popcount3(unsigned* vectorcito, int longitud){
+    int i;
+    int resultado = 0;
+    unsigned x;
+
+    for(i = 0; i < longitud; i++){
+        x = vectorcito[i];
+        // ADD : Suma SIN accareo
+        // ADC : Suma CON accarreo
+        // SHR : Realiza el desplazamiento a la derecha. Introduce un 0 y guara el bit CF (Carry Flag) del registro de estado.
+        // TEST: Realiza el AND lógico a nivel de bit ( 1001 AND 0101 = 0001) . No afecta al registro de estado.
+        // asm(): Nos permite introducir un trozo de código en ensamblador directamente en C (¡Vaya par de locos xD!)
+        asm("\n"
+            "comienzo:              \n\t"
+            "shr $0x1, %[x]     \n\t"   // Desplazamos a la derecha. EJ: 0011 ---> 0001 (se me precipita el 1 menos significativo xDD) 
+            "adc $0x0, %[r]     \n\t" // Sumamos con el accaro
+            "test %[x], %[x]        \n\t" // Hacemos el AND de sí mismo. Sólo será 0 si todos sus dígitos son 0, en cuyo caso, habremos terminado y no habría que continuar.
+            "jnz comienzo "             // Salto condicional
+            : [r] "+r" (resultado)  
+            : [x] "r" (x)
+            );
+    }
+    return resultado;
+}
+
+int popcount4(unsigned* vectorcito, int longitud){
+    int i;
+    int j;
+    int temp = 0;
+    int resultado = 0;
+    unsigned x;
+
+    // Recorro todos los elementos del vector
+    for(i=0; i < longitud; i++){
+        temp = 0;
+        // Guardo el elemento i-ésimo del vector
+        x = vectorcito[i];
+
+        // De una tacada, aplico la máscara a todos los bits del elemento del array en ese momento.
+        // 8 posiciones-> 0x(00)(00)(00)(00) = 4 bytes
+        for(j=0; j < 8; j++){
+            // Guardo en temp los bits al aplicarle la máscara al elemento actual (Y no al bit menos significativo como en las versiones anteriores).
+            // ¡Cuidado!: La operación + tiene mayor precedencia que el AND.
+            // Sin paréntesis sería: (temp + x) & 0x01010101 -> HORROR!!!!! xD
+            temp = temp + (x & 0x01010101);
+            // Desplazo hacia la derecha
+            x >>=1;
+        }
+        //temp = temp + (temp >> 32);
+        temp = temp + (temp >> 16);
+        temp = temp + (temp >> 8);
+        resultado = resultado + (temp & 0xff);
+    }
+    return resultado;
+}
+
+int popcount5(unsigned* vectorcito, int longitud){
+    int i;
+    int resultado = 0;
+    int temporal  = 0;
+    int mascara_SSE[] = {0x0f0f0f0f, 0x0f0f0f0f, 0x0f0f0f0f, 0x0f0f0f0f};
+    int SSE_LUTb[] = {0x02010100, 0x03020201, 0x03020201, 0x04030302};
+
+    if (0x3 & longitud)
+        printf("leyendo 128B pero longitud no es multiplo de 4 \n");
+
+    // Recorremos cada elemento en cada iteración.
+    for(i = 0; i < longitud; i += 4){
+        asm(
+            // Movemos xmm0 a x
+            "movdqu %[x], %%xmm0 \n\t"
+            // Copiamos hacia xmm0
+            "movdqa %%xmm0, %%xmm1 \n\t"
+            // Ahora tenemos dos copias para trabajar
+            // A continuación aplicaremos la máscara
+            "movdqu %[m], %%xmm6 \n\t"
+
+            // Movermos xmm1 4 bytes
+            "psrlw $4, %%xmm1 \n\t"
+
+            // AND lógico
+            "pand %% xmm6, %%xmm0 \n\t"
+            "pand %%xmm6, %%xmm1 \n\t"
+
+            // Volvemos a trabajar con dos copias
+            // Movemos xmm2 a l
+            "movdqu %[l], %%xmm2 \n\t"
+            // Movemos xmm3 a xmm2
+            "movdqa %%xmm2, %%xmm3 \n\t"
+
+            // El xmm2 es el cuarteto inferior y el xmmm3 es el cuarteto superior
+            // Según la página, los barajamos
+            "pshufb %%xmm0, %%xmm2 \n\t"
+            "pshufb %%xmm1, %%xmm3 \n\t"
+
+
+            "paddb %%xmm2, %%xmm3 \n\t"
+            // OR lógico
+            "pxor %%xmm0, %%xmm0 \n\t"
+            "psadbw %%xmm0, %%xmm3 \n\t"
+            "movhlps %%xmm3, %% xmm0 \n\t"
+            "paddd %%xmm3, %%xmm0 \n\t"
+            "movd %%xmm0, %[temporal] \n\t"
+
+            :[temporal] "=r" (temporal)
+            :[x] "m" (vectorcito[i]), [m] "m" (mascara_SSE[0]), [l] "m" (SSE_LUTb[0])
+            );
+        resultado = resultado + temporal;
+    }
+    return resultado;
+}
+
+int popcount6(unsigned* array, int longitud){
+    unsigned x = 0;
+    int i;
+    int val;
+    int result = 0;
+
+    for(i = 0; i < longitud; i++){
+        x = array[i];
+        asm(
+            "popcnt %[x], %[val]    \n\t"
+            :[val] "=r" (val)
+            :[x] "r" (x)
+            );
+        result += val;
+    }
+    return result;
+}
+
+int popcount7(unsigned* array, int longitud){
+    unsigned x;
+    int i;
+    unsigned copia;
+    int val;
+    int result = 0;
+
+    if(longitud & 0x1)
+        printf("leer 64b y longitud impar?\n");
+
+    for(i = 0; i < longitud; i += 2){
+        x = array[i];
+        copia = array[i+1];
+
+        asm(
+            "popcnt %[x], %[val]        \n\t"
+            "popcnt %[copia], %%edi     \n\t"
+            "add    %%edi, %[val]       \n\t"
+            : [val] "=r" (val)
+            : [x] "r" (x), [copia] "r" (copia)
+            : "edi"
+            );
+        result += val;
+    }
+
+    return result;
+}
+
+void crono(int (*func)(), char* msg){
+    struct timeval tv1,tv2;	// gettimeofday() secs-usecs
+    long           tv_usecs;	// y sus cuentas
+
+    gettimeofday(&tv1,NULL);
+    resultado = func(lista, SIZE);
+    gettimeofday(&tv2,NULL);
+
+    tv_usecs=(tv2.tv_sec -tv1.tv_sec )*1E6+
+             (tv2.tv_usec-tv1.tv_usec);
+
+    //Cuando hagamos copy pasete para Calc, sólo queremos los número
+    // Token pasting-> "%ld" "\n" (C tiene esa propiedad)
+
+    #if COPY_PASTE_CALC
+        printf(      "%ld" "\n",      tv_usecs);
+    #else
+    printf("resultado = %d\t\t\t", resultado);
+    printf("%s:%9ld us\n", msg, tv_usecs);
+
+    #endif
+}
+
+int main()
+{
+    # if ! TEST
+    // solo para el ejemplo grande
+        int i;
+        for (i=0; i<SIZE; i++)
+            lista[i]=i;
+    #endif
+    // Para el Test pequeño
+    crono(popcount1, "Popcount1 (Lenguaje C -           for)");
+    crono(popcount2, "Popcount2 (Lenguaje C -         while)");
+    crono(popcount3, "Popcount3 (Mask ASM                  )");
+    crono(popcount4, "Popcount4 (Suma completa             )");
+    crono(popcount5, "Popcount5 (SSE 3                     )");
+    crono(popcount6, "Popcount6 (SSE 4.2                   )");
+    crono(popcount7, "Popcount7 (SSE 4.2 x64               )");
+
+    #if ! COPY_PASTE_CALC
+        printf("RESULT = %d\n", RESULT);
+    #endif
+    exit(0);
+
+}
