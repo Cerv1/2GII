@@ -1,0 +1,188 @@
+\begin{DoxyVersion}{Version}
+v0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Juan F. Huete
+\end{DoxyAuthor}
+\hypertarget{index_intro_sec}{}\section{Introducción}\label{index_intro_sec}
+En la práctica anterior se os pidió la implementación del tipo conjunto de crímenes junto con sus iteradores asociados. En esta práctica, el objetivo es seguir avanzando en el uso de las estructuras de datos, particularmente mediante el uso de plantillas (templates) para la definición de tipos de datos genéricos.
+
+Nuestro objetivo es dotar al T\+D\+A conjunto de la capacidad de controlar el criterio que se sigue para ubicar los elementos en el mismo. Para ello, es necesario que sobre el tipo de dato que se instancia el conjunto, en nuestro caso crimen se tenga definido una relacion de preorden total, R, esto es\+:
+
+\begin{DoxyItemize}
+\item Para todo x,y\+: x\+Ry $\vert$$\vert$ y\+Rx \item Para todo x,y,z\+: Si x\+Ry \&\& y\+Rz entonces x\+Rz\end{DoxyItemize}
+Por tanto R es una relación binaria que toma como entrada dos elementos del mismo tipo y como salida nos devuelve un booleano. Ejemplos de este tipo de relaciones son el operator$<$ (o el operator$>$) que se pueden definir sobre la clase crimen 
+\begin{DoxyCode}
+\textcolor{keyword}{class }\hyperlink{classcrimen}{crimen} \{
+ \textcolor{keyword}{public}:
+  \hyperlink{classcrimen_ab1147e36869c7e635699e4ef746a7555}{crimen}();
+  ....
+  \textcolor{keywordtype}{bool} \hyperlink{classcrimen_ac865fdb9712f2426d947b1b5546b50e5}{operator<}(\textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} & y);
+ \textcolor{keyword}{private}:
+  ....
+\};
+
+\textcolor{keywordtype}{bool} \hyperlink{classcrimen_ac865fdb9712f2426d947b1b5546b50e5}{crimen::operator<}(\textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} & y)\{
+  \textcolor{keywordflow}{return} (this->ID < y.ID);
+\}
+\end{DoxyCode}
+
+
+El criterio de ordenación será proporcionado a la hora de definir un conjunto, que será gestionado mediante por un objeto de comparación interno (functor de tipo C\+M\+P).
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} CMP> \textcolor{keyword}{class }\hyperlink{classconjunto}{conjunto};
+\end{DoxyCode}
+
+
+La expresion comp(a,b), donde comp es un objeto de la clase C\+M\+P devuelve true si se considera que a precede b en la relación de preorden. Esta relación será utilizada por el set tanto para decidir cuando un elemento precede a otro en el contenedor como para determinar cuando dos elementos son equivalentes\+: para determinar cuando dos elementos serán considerados iguales con respecto a la relacion tendremos en cuenta que \begin{DoxyItemize}
+\item Si (!comp(a,b) \&\& !comp(b,a)) entonces necesariamente a==b.\end{DoxyItemize}
+\hypertarget{index_platillas}{}\section{Uso de templates}\label{index_platillas}
+Hasta ahora, los crímenes se encuentran almacenados en orden no decreciente de su valor de I\+D. Este conjunto puede ser de utilidad en muchos casos, sin embargo nos podríamos plantear el ordenar los elementos dentro del conjunto utilizando cualquier otro criterio. Así, podriamos tener
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "conjunto.h"}
+...
+\textcolor{comment}{// declaracion de tipos básicos:}
+conjunto<less<crimen > > X;  \textcolor{comment}{// elementos ordenados en orden creciende  (operator< sobre crimen)}
+\hyperlink{classconjunto}{conjunto<greater<crimen>} > Y; \textcolor{comment}{// elementos ordenados en orden decreciente
+       (operator> sobre crimen)}
+
+\textcolor{comment}{// declaracion de tipos más complejos:}
+
+\hyperlink{classconjunto}{conjunto<less<crimen>} >::iterator itl;
+\hyperlink{classconjunto}{conjunto<greater<crimen>} >::iterator itg;
+
+\hyperlink{classconjunto}{conjunto<greater<crimen>} > Desc(X.begin(),X.end()); \textcolor{comment}{//los mismos elementos
+       ordenados decrecientemente.}
+
+... 
+
+\textcolor{keywordflow}{if} (X.find(\textcolor{stringliteral}{"1234"}) == X.end()) 
+   ....
+\end{DoxyCode}
+
+
+Hay que notar que en este ejemplo X e Y representan a tipos distintos, esto es un conjunto ordenado en orden creciente de I\+D N\+O S\+E\+RÁ del mismo tipo que un conjunto ordenado en orden decreciente de I\+D. De igual forma, itl e itg tampoco serán variables del mismo tipo, por lo que no podríamos hacer entre otras cosas asignaciones como X=Y o itg=itl.
+
+En este caso, para realizar la práctica, el alumno deberá modificar tanto el fichero de especificación, \hyperlink{conjunto_8h_source}{conjunto.\+h}, de forma que la propia especificación indique que trabaja con parámetros plantilla, como los ficheros de implementación (.hxx) de la clase conjunto. Además deberá de modificar los ficheros \hyperlink{crimen_8h_source}{crimen.\+h} y \hyperlink{crimen_8hxx_source}{crimen.\+hxx} para permitir la definición dels distintas relaciones de orden.
+
+De igual forma se debe modificar el fichero principal.\+cpp de manera que se demuestre el correcto comportamiento del diccionario cuando se instancia bajo distintos criterios de ordenación, en concreto debemos asegurarnos que utilizamos los siguientes criterios de ordenación\+:
+
+\begin{DoxyItemize}
+\item creciente por id \item decreciente por id \item creciente por fecha \item decreciente por fecha \item creciente por I\+U\+C\+R\end{DoxyItemize}
+Para los dos primeros casos, y teniendo en cuenta que tenemos sobrecargado los operadores relaciones para crimen, es suficiente con utilizar las clases genéricas less$<$\+T$>$ y greater$<$\+T$>$ definidas en functional ( \#include $<$functional$>$ ). Sin embargo, para el resto de casos debemos implementar los functores que nos permitan realizar la correcta comparación entre crimenes.\hypertarget{index_functor}{}\section{functor}\label{index_functor}
+Para realizar dichas comparaciones utilizaremos una herramienta potente de C++\+: un functor (objeto función). Un functor es una clase en C++ que actua como una función. Un functor puede ser llamado puede ser llamado con una sintaxis familiar a la de las funciones en C++, pudiendo devolver valores y aceptar parámetros como una función normal.
+
+Por ejemplo, si queremos crear un functor que compare dos crímenes teniendo en cuenta el orden I\+U\+C\+R, podríamos hacer
+
+
+\begin{DoxyCode}
+\hyperlink{classcrimen}{crimen} x,y;
+...
+\hyperlink{classcrimen_1_1ComparacionPorFecha}{ComparacionPorFecha} miFunctor;
+cout << miFunctor(x,y) << endl;
+\end{DoxyCode}
+ Aunque mi\+Functor es un objeto, en la llamada mi\+Functor(x,y) la tratamos como si estuviésemos invocando a una función tomando x e y como parámetros.
+
+Para crear dicho functor, creamos un objeto que sobrecarga el operador() como sigue
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }ComparacionPorFecha \{
+ \textcolor{keyword}{public}:
+   \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} &a, \textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} &b) \{
+     \textcolor{keywordflow}{return} (a.\hyperlink{classcrimen_a8a6712e536211034819441ab87e1c215}{getDate}() < b.\hyperlink{classcrimen_a8a6712e536211034819441ab87e1c215}{getDate}()); \textcolor{comment}{// devuelve verdadero si el crimen a precede a b en
+       el tiempo}
+ \}
+\};
+\end{DoxyCode}
+\hypertarget{index_generalizar}{}\section{Generalizando el conjunto.}\label{index_generalizar}
+Para poder extender nuestro conjunto hemos de dotarlo de la capacidad de poder definir el criterio de ordenación. Para ello vamos a considerar un caso simplificado (que no se corresponde exactamente con lo que se pide en la práctica) donde ilustraremos su uso
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} CMP>
+\textcolor{keyword}{class }\hyperlink{classconjunto}{conjunto} \{
+  \textcolor{keyword}{public}:
+    ....
+    \textcolor{keywordtype}{void} \hyperlink{classconjunto_adb7f70590741e9f7db3a28de60f4452a}{insert}( \textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} & c);
+
+  \textcolor{keyword}{private}:
+    vector<crimen> vc; \textcolor{comment}{//donde se almacenan los datos}
+    CMP comp;
+\};
+\end{DoxyCode}
+ Como hemos dicho, el nombre del tipo ahora es conjunto$<$\+C\+M\+P$>$ y no conjunto. Distintas particularizaciones dan lugar a tipos también distintos. Ahora, en el fichero \hyperlink{conjunto_8hxx_source}{conjunto.\+hxx} debemos de implementar cada uno de los métodos, recordemos que cada uno de ellos pertenece a la clase conjunto$<$\+C\+M\+P$>$ y por tanto se implementa considerando 
+\begin{DoxyCode}
+valorReturn \hyperlink{classconjunto}{conjunto<CMP>::nombreMetodo}( parametros ...)
+\end{DoxyCode}
+
+
+Pasamos a ver la implementación de los métodos\+:\hypertarget{index_insert}{}\subsection{Insert}\label{index_insert}
+El método insert asume como prerequisito que el conjunto está ordenado según el criterio dado por C\+M\+P, y por tanto debe asegurar que tras insertar un nuevo crimen dicho conjunto siga ordenado. Por ejemplo, podríamos hacer (recordad que en prácticas se pide hacer la búsqueda binaria) algo del tipo 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} \hyperlink{classconjunto_adb7f70590741e9f7db3a28de60f4452a}{conjunto<CMP>::insert}( \textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} & s)\{
+        \textcolor{keywordtype}{bool} insertado = \textcolor{keyword}{false};
+
+        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i =0; !insertado && i < v.size(); )
+            \textcolor{keywordflow}{if} (comp(v[i],s) ) i++;
+            \textcolor{keywordflow}{else} \{
+              v.insert(v.begin()+i,s);
+              insertado = \textcolor{keyword}{true};
+            \}
+        \textcolor{keywordflow}{if} (!insertado) v.push\_back(s);
+     \}
+\end{DoxyCode}
+
+
+En este caso comp(v\mbox{[}i\mbox{]},s) hace referencia a una comparación genérica entre crímenes definida por la relación de orden con la que se haya particularizado el conjunto. Así si hemos definido
+
+
+\begin{DoxyCode}
+\hyperlink{classconjunto}{conjunto<ComparacionPorFecha>} cf;
+\end{DoxyCode}
+
+
+en este caso comp es un objeto de la clase Comparacion\+Por\+Fecha, y mediante la llamada comp(v\mbox{[}i\mbox{]},s) lo que estamos haciendo es llamar a la \char`\"{}función\char`\"{} que me compara dos crimenes teniendo en cuenta su campo fecha.
+
+Finalmente, debemos tener cuidado a la hora de realizar comparaciones y la semántica de las mismas, por ejemplo, si queremos implementar la búsqueda binaria en un vector$<$crimen$>$ que está dentro de un conjunto$<$less$<$crimen$>$ $>$ podriamos hacer algo como
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} \hyperlink{classconjunto}{conjunto<CMP>::busquedaBinaria} (\textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} &d )\{
+    \textcolor{keywordtype}{int} sup=vc.\hyperlink{classconjunto_af9962de5f6425f2030dc0e63015f85b3}{size}()-1;
+    \textcolor{keywordtype}{int} inf = 0;
+    \textcolor{keywordflow}{while} (sup > inf) \{
+      medio = (inf+sup)/2;
+      \textcolor{keywordflow}{if} (vc[medio] == d) \textcolor{keywordflow}{return} \textcolor{keyword}{true};  \textcolor{comment}{// comparamos igualdad entre crimen}
+      \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (vc[medio] < d) inf = medio+1; \textcolor{comment}{// comparamos menor entre crimen}
+      \textcolor{keywordflow}{else} sup = medio-1;
+    \}
+    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+\}
+\end{DoxyCode}
+ En este caso, estaríamos haciendo la llamada a la comparación de igualdad y menor entre crímenes (definida medianta la comparación de su I\+D) por lo que podría funcionar correctamente el método. Sin embargo, si el conjunto está definido como conjunto$<$\+Comparacion\+Por\+Fecha$>$, utilizar el mismo código para realizar la búsqueda binaria no funcionaria correctamente\+: los elementos están ordenados en orden creciente de fecha. De hecho, no tendría sentido utilizar la búsqueda binaria para buscar un I\+D pues los elementos no se encuentran ordenados según I\+D en este conjunto$<$\+Comparar\+Por\+Fecha$>$.
+
+El siguiente código nos permitiría utilizar la búsqueda binaria utilizando el criterio utilizado para ordenar los elementos en el conjunto. 
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} \hyperlink{classconjunto}{conjunto<CMP>::busquedaBinaria} (\textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} &d )\{
+    \textcolor{keywordtype}{int} sup=vc.\hyperlink{classconjunto_af9962de5f6425f2030dc0e63015f85b3}{size}()-1;
+    \textcolor{keywordtype}{int} inf = 0;
+    \textcolor{keywordflow}{while} (sup > inf) \{
+      medio = (inf+sup)/2;
+      \textcolor{keywordflow}{if} (!comp(vc[medio],d) && !comp(d,vc[medio]) ) \textcolor{keywordflow}{return} \textcolor{keyword}{true};  \textcolor{comment}{// comparamos igualdad entre crimen}
+      \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (comp(vc[medio],d)) inf = medio+1; \textcolor{comment}{// comparamos menor entre crimen}
+      \textcolor{keywordflow}{else} sup = medio-1;
+    \}
+    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+\}
+\end{DoxyCode}
+\hypertarget{index_SP2}{}\subsection{S\+E P\+I\+D\+E}\label{index_SP2}
+Con la idea de reducir la parte de codificación, sólo será necesario entregar la implementacion del conjunto y dos de sus iteradores (la entrega del resto de ellos es opcional). \begin{DoxyItemize}
+\item conjunto$<$\+C\+O\+M\+P$>$\+::iterator \item conjunto$<$\+C\+O\+M\+P$>$\+::const\+\_\+iterator\end{DoxyItemize}
+Además, al T\+D\+A conjunto le incluiremos los siguientes métodos\+: \begin{DoxyItemize}
+\item conjunto$<$\+C\+M\+P$>$\+::conjunto(iterator ini, iterator fin); Constructor de conjunto que contiene los elementos contenidos en el rango \mbox{[}ini,fin) \item iterator \hyperlink{classconjunto_a72ee85a4309acdd8274392fc4a765de4}{conjunto$<$\+C\+M\+P$>$\+::find(const crimen \& c)}; \item const\+\_\+iterator \hyperlink{classconjunto_adc065d4751136dbf69b7b74bc7ca0684}{conjunto$<$\+C\+M\+P$>$\+::find(const crimen \& c)const}; Hace la búsqueda binaria del elemento en el conjunto considerando el orden definido por C\+M\+P. Devuelve el iterador que apunta a la posición donde se encuetra el elemento o end() en caso contrario. \item iterator \hyperlink{classconjunto_a01ef97588beb5b28f18d2d8c02881f4c}{conjunto$<$\+C\+M\+P$>$\+::find(const long int \& id)}; \item const\+\_\+iterator \hyperlink{classconjunto_a725ddba7aa25ad0576f13000e035ee6f}{conjunto$<$\+C\+M\+P$>$\+::find(const long int \& id)const}; En este caso, como no sabemos cómo están ordenados los elementos será necesario realizar una una búsqueda lineal. \item iterator lower\+\_\+bound (const entrada \& x); \item const\+\_\+iterator lower\+\_\+bound (const entrada \& x) const; Devuelven un iterador al primer elemento en el contenedor que no precede a x en el conjunto, esto es, es equivalente a x o le sigue según la relacion de orden definida por C\+M\+P. Esta función utiliza el functor interno devolviendo un iterador al primer elemento, e, para el que se satisface que comp(e,x) es falso. \item iterator upper\+\_\+bound (const entrada \& x); \item const\+\_\+iterator lower\+\_\+bound (const entrada \& x) const; Devuelven un iterador al primer elemento que sigue a x según la relacion de orden definida por C\+M\+P. Esta función utiliza el functor interno devolviendo un iterador al primer elemento, e, para el que se satisface que comp(x,e) es cierto.\end{DoxyItemize}
+Dicha entrega se debe realizar antes del Viernes 27 de Noviembre, a las 23\+:59 horas. 

@@ -1,0 +1,48 @@
+
+conjunto<less<crimen> > x		// ESCRIBIR TAL QUE ASI
+
+//////////////////////////////////
+Comentar en .h la clase operator<<
+
+
+////////////////////////////////////
+//
+//	En el .h
+
+template <class CMP>		// segun sea... typename: tipo de dato || class:functor
+class conjunto{
+
+	conjunto();
+	int size() const;
+	conjunto(const conjunto<CMP> & c);
+private:
+	vector<crimen> vc;
+	CMP comp;
+};
+
+#include "conjunto.hxx"
+
+////////////////////////////////////
+//
+//	En el .hxx
+
+template<class CMP>
+conjunto<CMP>::conjunto(){}
+
+template<class CMP>
+int conjunto<CMP>::size() const{
+	return vc.size();
+}
+
+template<class CMP>
+conjunto<CMP>::conjunto(const conjunto<CMP> & c){}
+};
+
+////////////////////////////////////
+//
+//	En el main
+
+#include <functional>
+int main(){
+	conjunto x;
+}

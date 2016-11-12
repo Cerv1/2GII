@@ -1,0 +1,71 @@
+\hypertarget{classCSS}{}\section{C\+S\+S Class Reference}
+\label{classCSS}\index{C\+S\+S@{C\+S\+S}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classCSS_1_1Date__iterator}{Date\+\_\+iterator}
+\item 
+class \hyperlink{classCSS_1_1iterator}{iterator}
+\item 
+class \hyperlink{classCSS_1_1IUCR__iterator}{I\+U\+C\+R\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCSS_ab46659bd53bb62d63ca4d9a6e66432eb}{}void \hyperlink{classCSS_ab46659bd53bb62d63ca4d9a6e66432eb}{load} (string nombre\+D\+B)\label{classCSS_ab46659bd53bb62d63ca4d9a6e66432eb}
+
+\begin{DoxyCompactList}\small\item\em Se encarga de leer los elementos de un fichero dado por el argumento nombre\+D\+B, e insertar toda la información en la base de datos. Recordad que para esta práctica se os pide que extendáis el campo descripción a todas las descripciones que se encuentra en la base de datos.\+Pare ello será necesario modificar la clase crimen utilizada en la práctica anterior. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_aa91d167f48777dee663cc04ecdfbbf94}{}void \hyperlink{classCSS_aa91d167f48777dee663cc04ecdfbbf94}{insert} (const \hyperlink{classcrimen}{crimen} \&x)\label{classCSS_aa91d167f48777dee663cc04ecdfbbf94}
+
+\begin{DoxyCompactList}\small\item\em Este método se encarga de insertar un nuevo crimen en \hyperlink{classCSS}{C\+S\+S}. Como prerrequisito se asume que el crimen no está ya almacenado en el conjunto. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a2c783f8e37c103cf317c2fd11864a796}{}bool \hyperlink{classCSS_a2c783f8e37c103cf317c2fd11864a796}{erase} (unsigned int I\+D)\label{classCSS_a2c783f8e37c103cf317c2fd11864a796}
+
+\begin{DoxyCompactList}\small\item\em En este caso, se trata de borrar un crimen de la base de datos dado su I\+D. Devuelve verdadero si el crimen ha sido borrado correctamente, falso en caso contrario. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_ae63486750a33cba9bb04d07a308bfbbb}{}void \hyperlink{classCSS_ae63486750a33cba9bb04d07a308bfbbb}{set\+Arrest} (const unsigned int I\+D, bool value)\label{classCSS_ae63486750a33cba9bb04d07a308bfbbb}
+
+\begin{DoxyCompactList}\small\item\em Modifica el campo arrest de un crimen identificado por I\+D. Será necesario cuando se detenga un criminal con posterioridad a la inserción del delito en \hyperlink{classCSS}{C\+S\+S}. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a000e80598d854ef16f4c49365b707b2c}{}vector$<$ pair$<$ I\+D, float $>$ $>$ \hyperlink{classCSS_a000e80598d854ef16f4c49365b707b2c}{Query} (list$<$ string $>$ \&q, int k)\label{classCSS_a000e80598d854ef16f4c49365b707b2c}
+
+\begin{DoxyCompactList}\small\item\em Si la lista tiene un único termino, buscamos el término en el index y devolvemos una lista con todos los I\+D del conjunto asocidado, con el valor second del par a 1.\+0. Si la lista tiene dos términos, debemos hacer una unión de las dos listas de I\+Ds asociadas a los términos, pero en el caso en que exista un I\+D que esté en ambos conjuntos (los dos términos están en la descripción del I\+D), debemos contar su peso como 2, en caso contrario como los I\+Ds pertenecen sólo a una lista y por tanto su peso será 1. En este proceso se puede aprovechar que los conjuntos están ordenados en orden creciente de I\+D. Para ello, podemos diseñar un método privado llamado \char`\"{}union\+Peso\char`\"{}. Para más de dos términos podemos utilizar el método anterior para hacer la unión de las dos primeras listas de I\+D, y utilizar el siguiente método para ir actualizando en el map la información asociada al resto de términos de la consulta. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_ab4cda3a2b096b51e39a96a380eec92a7}{}list$<$ I\+D $>$ \hyperlink{classCSS_ab4cda3a2b096b51e39a96a380eec92a7}{in\+Area} (Longitud x1, Latitud y1, Longitud x2, Latitud y2)\label{classCSS_ab4cda3a2b096b51e39a96a380eec92a7}
+
+\begin{DoxyCompactList}\small\item\em En este caso la posición geográfica la almacenamos en una estructura ordenada donde la clave, que asumimos única, se corresponde con la longitud donde se produce el delito. En este caso, los delitos están ordenados en orden creciente por este valor de coordenada. Para cada una de ellas almacenamos las coordenadas de latitud donde se cometió el delito. Como para una misma coordenada x,y puede haber más de un delito en el tiempo, se considera una estructura de multimap. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a9ef91ca38be52afee9474206d63ce35b}{}\hyperlink{classCSS_1_1iterator}{iterator} \hyperlink{classCSS_a9ef91ca38be52afee9474206d63ce35b}{find\+\_\+\+I\+D} (const unsigned int I\+D)\label{classCSS_a9ef91ca38be52afee9474206d63ce35b}
+
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al I\+D pasado por parámetro y en caso de no existir devuelve un iterador al principio del conjunto. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a8da54a9e8f5e9090f840361e5e656a59}{}\hyperlink{classCSS_1_1iterator}{iterator} \hyperlink{classCSS_a8da54a9e8f5e9090f840361e5e656a59}{begin} ()\label{classCSS_a8da54a9e8f5e9090f840361e5e656a59}
+
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al primer crimen del conjunto ordenado por I\+D. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_ac5d8965f7509862d34b07f9a29e8f10d}{}\hyperlink{classCSS_1_1iterator}{iterator} \hyperlink{classCSS_ac5d8965f7509862d34b07f9a29e8f10d}{end} ()\label{classCSS_ac5d8965f7509862d34b07f9a29e8f10d}
+
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al último crimen del conjunto ordenado por I\+D. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_aff5661f866d36d588f8892d3089d8c11}{}\hyperlink{classCSS_1_1IUCR__iterator}{I\+U\+C\+R\+\_\+iterator} \hyperlink{classCSS_aff5661f866d36d588f8892d3089d8c11}{ibegin} ()\label{classCSS_aff5661f866d36d588f8892d3089d8c11}
+
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al primer crimen del conjunto ordenado por I\+U\+C\+R. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a739c71c2391a794544612d2368e3a010}{}\hyperlink{classCSS_1_1IUCR__iterator}{I\+U\+C\+R\+\_\+iterator} \hyperlink{classCSS_a739c71c2391a794544612d2368e3a010}{iend} ()\label{classCSS_a739c71c2391a794544612d2368e3a010}
+
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al último crimen del conjunto ordenado por I\+U\+C\+R. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a2d05eb08f299f53aba2273cf90876f01}{}\hyperlink{classCSS_1_1Date__iterator}{Date\+\_\+iterator} \hyperlink{classCSS_a2d05eb08f299f53aba2273cf90876f01}{dbegin} ()\label{classCSS_a2d05eb08f299f53aba2273cf90876f01}
+
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al primer crimen del conjunto ordenado por fecha. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_afae6d5cc1cfb20d98a236759ccb4789a}{}\hyperlink{classCSS_1_1Date__iterator}{Date\+\_\+iterator} \hyperlink{classCSS_afae6d5cc1cfb20d98a236759ccb4789a}{dend} ()\label{classCSS_afae6d5cc1cfb20d98a236759ccb4789a}
+
+\begin{DoxyCompactList}\small\item\em Devuelve un iterador al último crimen del conjunto ordenado por fecha. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a79878f2415e70ccbb9835a2e5d08d56c}{}\hyperlink{classCSS_1_1IUCR__iterator}{I\+U\+C\+R\+\_\+iterator} \hyperlink{classCSS_a79878f2415e70ccbb9835a2e5d08d56c}{lower\+\_\+bound} (I\+U\+C\+R)\label{classCSS_a79878f2415e70ccbb9835a2e5d08d56c}
+
+\begin{DoxyCompactList}\small\item\em Devuelve la cota inferior en el contenedor ordenado por I\+U\+C\+R del I\+U\+C\+R pasado como parámetro. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_ae17a18cad335da7ca1f057545b82d6e6}{}\hyperlink{classCSS_1_1IUCR__iterator}{I\+U\+C\+R\+\_\+iterator} \hyperlink{classCSS_ae17a18cad335da7ca1f057545b82d6e6}{upper\+\_\+bound} (I\+U\+C\+R)\label{classCSS_ae17a18cad335da7ca1f057545b82d6e6}
+
+\begin{DoxyCompactList}\small\item\em Devuelve la cota superior en el contenedor ordenado por I\+U\+C\+R del I\+U\+C\+R pasado como parámetro. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a3acb2d31ffc82cf81f4b1a9efd166ab7}{}\hyperlink{classCSS_1_1Date__iterator}{Date\+\_\+iterator} \hyperlink{classCSS_a3acb2d31ffc82cf81f4b1a9efd166ab7}{lower\+\_\+bound} (\hyperlink{classfecha}{fecha})\label{classCSS_a3acb2d31ffc82cf81f4b1a9efd166ab7}
+
+\begin{DoxyCompactList}\small\item\em Devuelve la cota inferior en el contenedor ordenado por fecha de la fecha pasada como parámetro. \end{DoxyCompactList}\item 
+\hypertarget{classCSS_a8fe67eaee0bcd9f723637120d194f7fb}{}\hyperlink{classCSS_1_1Date__iterator}{Date\+\_\+iterator} \hyperlink{classCSS_a8fe67eaee0bcd9f723637120d194f7fb}{upper\+\_\+bound} (\hyperlink{classfecha}{fecha})\label{classCSS_a8fe67eaee0bcd9f723637120d194f7fb}
+
+\begin{DoxyCompactList}\small\item\em Devuelve la cota superior en el contenedor ordenado por fecha de la fecha pasada como parámetro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+css.\+h\item 
+css.\+hxx\end{DoxyCompactItemize}

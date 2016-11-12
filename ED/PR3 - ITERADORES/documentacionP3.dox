@@ -1,0 +1,231 @@
+/*! \mainpage  Iterando sobre el conjunto
+ *
+\version v0
+\author  Juan F. Huete
+
+\tableofcontents
+
+\section intro_sec Introducción
+
+En la práctica anterior hemos construido el conjunto, pero no estaba doctado de un mecanismo para poder iterar sobre las entradas que tiene almacenadas. Este mecanismo es esencialmente un iterador, que no es otra cosa que un objeto que se mueve a través de un contenedor (en la práctica nuestro conjunto) de conjunto::entrada  (entradas en el conjunto). La ventaja del uso del iterador es que nos proporciona un mecanismo estándar para acceder a los elementos de un contenedor, sin necesidad de conocer las particularidades internas de la implementación.
+
+\section doc Generar la Documentación.
+
+Al igual que en la práctica anterior la documentación se entrega mediante un fichero pdf, así como mediante un fichero zip que contiene todos los fuentes junto a los archivos necesarios para generar la documentación (en latex y html). Para generar los ficheros html con la documentación de la misma es suficiente con ejecutar desde la línea de comandos
+
+\code
+doxygen doxFileP3
+\endcode
+
+Como resultado nos genera dos directorios, uno con la documentación en html   y el otro con la documentación en latex. 
+
+
+
+Se entregam los ficheros de especificación nueva para el TDA conjunto. Estos ficheros incluyen  algunas modificaciones que viene dadas por el uso de los iteradores. 
+
+\li conjunto.h  En el nuevo fichero conjunto.h se entrega la nueva especificación de la clase conjunto, donde además se le añade la especificación del iterator. Se os pide implementar los distintos métodos así como el código necesario para demostrar el correcto funcionamiento del mismo.
+\li conjunto.hxx  En este fichero se incluyen  las cabeceras que hacen referencia al los distintos iteratorres, debiendo de añadir también las que hacen referencia al const_iterator. 
+
+
+
+Pasamos a detallar cada una de las partes de la práctica.
+
+\section iterar Iteradores sobre conjunto.
+
+Casi todos los contenedores disponen de una (o varias) clases asociada llamada iterator.  Para poder asociar el iterador al contenedor una alternativa es añadir una clase anidada (una clase que se define dentro de la clase contenedora). Ambas clases están estrechamente relacionadas, por lo que es muy usual que se desee que tanto el contenedor como el iterador sean clases amigas. Así, cuando se crea una clase friend anidada es conveniente declarar primero el nombre de la clase y después definir la clase. Así evitamos que se confunda el compilador.
+
+\code
+template
+class conjunto {
+public:
+   class iterator;  //declaraciones previa
+   class const_iterator;
+   class arrest_iterator; // Iterador sobre los delitos que implicaron un arresto (Arrest==true)
+   class const_arrest_iterator;
+   class description_iterator;  // Iterador sobre los delitos que concuerdan con la descripcion
+   class const_description_iterator;
+   ....
+   iterator begin();  // Podemos declarar el iterator porque ya lo hemos declarado previamente
+   const_iterator cbegin();
+   arrest_iterator abegin();
+   const_arrest_iterator cabegin( );
+   description_iterator dbegin(const string & descrp);
+   const_description_iterator cdbegin(const string & descrip);
+   
+
+   ....
+   class iterator {
+      //definicion del iterator
+      public:
+	iterator();
+        ....
+      private:
+         friend class conjunto; // declaramos conjunto como amigo de la clase
+        ....
+
+    }; // end de la clase iterator
+   private:
+        friend class iterator; // declaramos el iterador como amigo de la clase
+
+}; // end de la clase conjunto
+\endcode
+
+Es importante notar que el tipo asociado al iterador es conjunto::iterator 
+Por tanto, para declarar un conjunto y un iterator sobre dicho conjunto debemos hacer
+
+\code
+conjunto C;
+conjunto::iterator it;
+
+for (it = C.begin() ; it!=C.end();++it) //Itera sobre todos los elementos del conjunto.
+  cout << *it << endl;
+
+conjunto::arrest_iterator ait; //Itera sobre todos los crimenes que han tenido un arresto
+for (ait = C.abegin(); ait!= C.aend();++ait) 
+  cout << *it << endl;
+
+
+conjunto::description_iterator dit, dit2;  //Itera sobre los elementos relacionados con BATTERY, i.e., BATTERY esta dentro de la descripcion
+for (dit = C.dbegin("BATTERY"); dit!= C.dend();++dit) 
+  cout << *it << endl;
+
+dit2 = C.dbegin("FINANCIAL");  // Iteraria solo sobre los elementos relacionados con FINANCIAL
+
+\endcode
+
+\section ini begin y end
+
+Para poder iterar sobre los elementos del contenedor, debemos dotarlo de dos nuevos métodos (que siguiendo en estándar de la Standard Template Library llamaremos begin  y end, en sus distintos formatos begin  devuelve un iterator que apunta al primer elemento del contenedor (primer crimen que satisface las condiciones por las que se itera), mientras que end (en sus distintas versiones por su parte nos devuelve un iterator que apunta «al final» del contenedor. Es importante recordar que la posición final del contenedor no es una posición válida del mismo, esto es, no hay ningún elemento en dicha posición (es conveniente pensar que es la posición siguiente al último elemento del contenedor). Por ello, no es correcto dereferenciar el elemento alojado en dicha posición ( *end() ).
+
+Además podemos ver el uso de paréntesis para acceder a los elementos (*it).getID(). En este caso, si hacemos *it.getID, dada la precedencia de los operadores, primero se evaluaría el operador "."
+\code
+ (*it).getID() // Correncto
+ *it.getID() // Incorrecto, primero evalua it.getID()
+\endcode
+
+Además del begin y end que devuelven el iterator, y siguiendo la filosofía del estándar c++11, implementaremos dos métodos, el cbegin  y el cend que devuelven los const_iterator
+
+
+\code
+conjunto::const_iterator c_it = dic.cbegin();
+\endcode
+
+\subsection descr debin y end en description_iterator
+En esta práctica debemos destacar el comportamiento del description_iterator. Dicho iterador nos permitirá iterar sobre todos los elementos que contengan una determinada subcadena como parte de la descripción. Para ello, debemos indicarle al iterador sobre que subcadena debe iterar, esto lo haremos mediante el método dbegin() (o cdbegin()) que recibirán como parámetro de entrada dicha cadena.  
+
+\code
+@brief devolver primera posicion del elemento que empareja con la descripcion descr
+@param[in] descr descripcion de buscamos
+@return un iterador que apunta a la primera posicion, el emparejamiento se hace teniendo en cuenta que descr debe ser una subcadena de la descripción del delito.
+
+conjunto::description_iterator conjunto::dbegin(const string & descr) const;
+
+\endcode
+
+El método end() nos debe devolver un iterador que apunta a la posición final del mismo, en este caso dicho iterador puede coincider con el end() del vector<crimenes>
+
+
+\section modif Modificación en la especificación de algunos métodos.
+
+Al permitir el uso de iteradores hay  métodos de la clase conjunto que ya no tendrían sentido tal y como lo estaban previamente definidos. 
+
+\li pair< conjunto::entrada, bool > 	find (const long int &id) const ; 
+
+En este caso, lo podemos modificar para que  busca una entrada en el conjunto. Si la encuentra devuelve el iterador que apunta a la entrada, en caso contrario devuelve end().
+\code
+  conjunto::iterator  conjunto::find( const Key & s) ;
+....
+Ejemplo de uso:
+conjunto::iterator it;
+it = C.find(3456);
+if (it == C.end()) cout << "No esta " << endl;
+else cout << "Delito "<< (*it) << endl;
+\endcode
+
+\li conjunto::const_iterator  conjunto::find( const long int &id ) const;
+
+El comportamiento es similar al anterior pero en este caso devuelve un iterador constante.
+
+
+\section inter Representacion del iterator
+
+Un iterator de la clase conjunto nos debe permitir el acceso a los datos almacenados el en conjunto propiamente dicho. Una primera alternativa sería representar el iterator como un iterador sobre el vector, esto es 
+
+\code
+class conjunto{
+....
+  class iterator {
+    ....
+     entrada & operator*(); // NO seria correcto
+    ......
+    private:
+    vector<entrada>::iterator it_v; // Puntero a la entrada del vector.
+   };
+};
+\endcode
+Sin embargo, con esta representación sería posible violar el invariante de la representación, pues el usuario de la clase podría modificar el contenido de la clave ejecutando 
+
+\code
+
+...
+it = C.find(1234);
+if (it == Dic.end()) cout << "No esta " << endl;
+else {
+ (*it).setID(22222);
+}
+\endcode
+
+Esto nos daría problemas pues estaríamos modificando la clase, y particularmente al asumir los datos ordenados, el conjunto podría dejar de  estar ordenado, no cumpliría el invariante de la representación. A partir de este momento las operaciones de búsqueda e inserción dejarían de funcionar correctamente. 
+
+Para solucionar el  problema es necesario que todos los iteradores del conjunto devuelvan una referencia constante a los elementos almacenado en el mismo
+
+
+\code
+class conjunto{
+
+....
+  class iterator {
+    ....
+    const entrada & operator*();
+    ......
+    private:
+    ; // Puntero a la entrada del vector.
+   };
+....
+  class const_iterator {
+     .....
+     const entrada & operator*();
+     ....
+     private:
+     ....
+};
+\endcode
+
+
+\section pido SE PIDE
+
+En concreto se pide implementar los métodos asociados a los iteradores de la clase conjunto.
+
+
+En este caso, para realizar  la práctica, el alumno deberá modificar los ficheros de implementación (.hxx). 
+
+
+De igual forma se debe modificar el fichero prueba.cpp de manera que se demuestre el correcto comportamiento del conjunto cuando se instancia con distintos tipos.
+
+\subsection entrega A ENTREGAR
+
+El alumno debe entregar los siguientes ficheros, con las correciones necesarias para poder trabajar 
+\li fecha.h 
+\li fecha.hxx
+\li crimen.h
+\li crimen.hxx
+\li conjunto.h Especificación del TDA conjunto.
+\li conjunto.hxx  segunda versión del conjunto.
+\li prueba.cpp fichero de prueba del conjunto donde se incluyen los métodos que trabajan sobre meteorito
+
+Dicha entrega tiene como límite el Viernes 13 de Noviembre.
+
+*/
+
+
+

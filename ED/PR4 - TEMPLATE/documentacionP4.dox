@@ -1,0 +1,214 @@
+﻿/*! \mainpage  PRACTICA TEMPLATE
+ *
+\version v0
+\author  Juan F. Huete
+
+\tableofcontents
+
+ * \section intro_sec Introducción
+ *
+ * En la práctica anterior se os pidió la implementación del tipo conjunto de crímenes junto con sus iteradores asociados. En esta práctica, el objetivo es seguir  avanzando  en el uso de las estructuras de datos, particularmente mediante el uso de plantillas (templates) para la definición de tipos de datos genéricos.
+
+Nuestro objetivo es dotar al TDA conjunto de la capacidad de controlar el criterio que se sigue para ubicar los elementos en el mismo. Para ello, es necesario que sobre el tipo de dato que se instancia el conjunto, en nuestro caso crimen se tenga definido una relacion de preorden total, R, esto es:
+
+\li Para todo x,y: xRy || yRx
+\li Para todo x,y,z: Si xRy && yRz entonces xRz
+
+Por tanto  R es una relación binaria que toma como entrada dos elementos del mismo tipo y como salida nos devuelve un booleano. Ejemplos de este tipo de relaciones son el operator< (o el operator>) que se pueden definir sobre la clase crimen
+\code
+class crimen {
+ public:
+  crimen();
+  ....
+  bool operator<(const crimen & y);
+ private:
+  ....
+};
+
+bool crimen::operator<(const crimen & y){
+  return (this->ID < y.ID);
+}
+\endcode
+
+
+El criterio de ordenación será proporcionado a la hora de definir un conjunto, que será gestionado mediante  por un objeto de comparación interno (functor de tipo CMP).
+
+\code
+template <typename CMP> class conjunto;
+\endcode
+
+La expresion comp(a,b), donde comp es un objeto de la clase CMP devuelve true si se considera que a precede  b en la relación de preorden. Esta relación será utilizada por el set tanto para decidir cuando un elemento precede a otro en el contenedor como para determinar cuando dos elementos son equivalentes: para determinar cuando dos elementos serán considerados iguales con respecto a la relacion tendremos en cuenta que
+\li Si (!comp(a,b) && !comp(b,a))  entonces necesariamente a==b.
+
+\section platillas Uso de templates
+ Hasta ahora, los crímenes se encuentran almacenados en orden no decreciente de su valor de ID. Este conjunto puede ser de utilidad en muchos casos, sin embargo nos podríamos plantear el ordenar los elementos dentro del conjunto utilizando cualquier otro criterio.    Así, podriamos tener
+
+\code
+#include "conjunto.h"
+...
+// declaracion de tipos básicos:
+conjunto<less<crimen > > X;  // elementos ordenados en orden creciende  (operator< sobre crimen)
+conjunto<greater<crimen> > Y; // elementos ordenados en orden decreciente (operator> sobre crimen)
+
+// declaracion de tipos más complejos:
+
+conjunto<less<crimen> >::iterator itl;
+conjunto<greater<crimen> >::iterator itg;
+
+conjunto<greater<crimen> > Desc(X.begin(),X.end()); //los mismos elementos ordenados decrecientemente.
+
+... 
+
+if (X.find("1234") == X.end()) 
+   ....
+\endcode
+
+Hay que notar que en este ejemplo X e Y representan a tipos distintos, esto es un conjunto ordenado en orden creciente de ID NO SERÁ del mismo tipo que un conjunto ordenado en orden decreciente de ID. De igual forma,  itl e itg tampoco serán variables del mismo tipo, por lo que no podríamos hacer entre otras cosas asignaciones como X=Y o itg=itl.
+
+
+En este caso, para realizar  la práctica, el alumno deberá modificar tanto el fichero de especificación, conjunto.h,  de forma que la propia especificación indique que trabaja con parámetros plantilla, como los ficheros de implementación (.hxx) de la clase conjunto. 
+Además deberá de modificar los ficheros crimen.h y crimen.hxx para permitir la definición dels distintas relaciones de orden.
+
+
+De igual forma se debe modificar el fichero principal.cpp de manera que se demuestre el correcto comportamiento del diccionario cuando se instancia bajo distintos criterios de ordenación, en concreto debemos asegurarnos que utilizamos los siguientes criterios de ordenación:
+
+\li creciente por id
+\li decreciente por id
+\li creciente por fecha
+\li decreciente por fecha
+\li creciente por IUCR
+
+Para los dos primeros casos, y teniendo en cuenta que tenemos sobrecargado los operadores relaciones para crimen, es suficiente con utilizar las clases genéricas less<T> y greater<T> definidas en functional ( #include <functional> ). Sin embargo, para el resto de casos debemos implementar los functores que nos permitan realizar la correcta comparación entre crimenes.
+
+\section functor functor
+ Para realizar dichas comparaciones utilizaremos una herramienta potente de C++: un functor (objeto función). Un functor es una clase en C++ que actua como una función. Un functor puede ser llamado puede ser llamado con una sintaxis familiar a la de las funciones en C++, pudiendo devolver valores y aceptar parámetros como una función normal.
+
+Por ejemplo, si queremos crear un functor que compare dos crímenes teniendo en cuenta el orden IUCR, podríamos hacer
+
+\code
+crimen x,y;
+...
+ComparacionPorFecha miFunctor;
+cout << miFunctor(x,y) << endl;
+
+\endcode
+Aunque miFunctor es un objeto, en la llamada miFunctor(x,y) la tratamos como si estuviésemos invocando a una función tomando x e y como parámetros.
+
+Para crear dicho functor, creamos un objeto que sobrecarga el operador() como sigue
+
+\code
+class ComparacionPorFecha {
+ public:
+   bool operator()(const crimen &a, const crimen &b) {
+     return (a.getDate() < b.getDate()); // devuelve verdadero si el crimen a precede a b en el tiempo
+ }
+};
+      
+\endcode
+
+\section generalizar Generalizando el conjunto.
+
+Para poder extender nuestro conjunto hemos de dotarlo de la capacidad de poder definir el criterio de ordenación. Para ello vamos a considerar un caso simplificado (que no se corresponde exactamente con lo que se pide en la práctica) donde ilustraremos su uso
+
+\code
+template <typename CMP>
+class conjunto {
+  public:
+    ....
+    void insert( const crimen & c);
+
+  private:
+    vector<crimen> vc; //donde se almacenan los datos
+    CMP comp;
+};
+\endcode
+Como hemos dicho, el nombre del tipo ahora es conjunto<CMP> y no conjunto. Distintas particularizaciones dan lugar a tipos también distintos. Ahora, en el fichero conjunto.hxx debemos de implementar cada uno de los métodos, recordemos que cada uno de ellos pertenece a la clase conjunto<CMP> y por tanto se implementa considerando
+\code
+valorReturn conjunto<CMP>::nombreMetodo( parametros ...)
+\endcode
+
+Pasamos a ver la implementación de los métodos:
+
+\subsection insert Insert
+El método insert asume como prerequisito que el conjunto está ordenado según el criterio dado por CMP, y por tanto debe asegurar que tras insertar un nuevo crimen dicho conjunto siga ordenado. Por ejemplo, podríamos hacer (recordad que en prácticas se pide hacer la búsqueda binaria) algo del tipo 
+\code
+void conjunto<CMP>::insert( const crimen & s){
+        bool insertado = false;
+
+        for (int i =0; !insertado && i < v.size(); )
+            if (comp(v[i],s) ) i++;
+            else {
+              v.insert(v.begin()+i,s);
+              insertado = true;
+            }
+        if (!insertado) v.push_back(s);
+     }
+\endcode
+
+En este caso comp(v[i],s) hace referencia a una comparación genérica entre crímenes definida por la relación de orden con la que se haya particularizado el conjunto. Así si hemos definido
+
+\code
+conjunto<ComparacionPorFecha> cf;
+\endcode
+
+en este caso comp es un objeto de la clase ComparacionPorFecha, y mediante la llamada comp(v[i],s) lo que estamos haciendo es llamar a la "función" que me compara dos crimenes teniendo en cuenta su campo fecha. 
+
+Finalmente, debemos tener cuidado a  la hora de realizar comparaciones y la semántica de las mismas, por ejemplo, si queremos implementar la búsqueda binaria en un vector<crimen> que está dentro de un conjunto<less<crimen> > podriamos hacer algo como
+
+\code
+bool conjunto<CMP>::busquedaBinaria (const crimen &d ){
+    int sup=vc.size()-1;
+    int inf = 0;
+    while (sup > inf) {
+      medio = (inf+sup)/2;
+      if (vc[medio] == d) return true;  // comparamos igualdad entre crimen
+      else if (vc[medio] < d) inf = medio+1; // comparamos menor entre crimen
+      else sup = medio-1;
+    }
+    return false;
+}
+\endcode
+En este caso, estaríamos haciendo la llamada a la comparación de igualdad y menor entre crímenes (definida medianta la comparación de su ID) por lo que podría funcionar correctamente el método. Sin embargo, si el conjunto está definido como conjunto<ComparacionPorFecha>, utilizar el mismo código para realizar la búsqueda binaria no funcionaria correctamente: los elementos están ordenados en orden creciente de fecha. De hecho, no tendría sentido utilizar la búsqueda binaria para buscar un ID pues los elementos no se encuentran ordenados según ID en este  conjunto<CompararPorFecha>. 
+
+El siguiente código nos permitiría utilizar la búsqueda binaria utilizando el criterio utilizado para ordenar los elementos en el conjunto. 
+\code
+bool conjunto<CMP>::busquedaBinaria (const crimen &d ){
+    int sup=vc.size()-1;
+    int inf = 0;
+    while (sup > inf) {
+      medio = (inf+sup)/2;
+      if (!comp(vc[medio],d) && !comp(d,vc[medio]) ) return true;  // comparamos igualdad entre crimen
+      else if (comp(vc[medio],d)) inf = medio+1; // comparamos menor entre crimen
+      else sup = medio-1;
+    }
+    return false;
+}
+\endcode
+
+
+\subsection SP2 SE PIDE
+
+Con  la idea de reducir la parte de codificación,  sólo será necesario entregar la implementacion del conjunto y dos de sus iteradores (la entrega del resto de ellos es opcional). 
+\li conjunto<COMP>::iterator 
+\li conjunto<COMP>::const_iterator  
+
+Además, al TDA conjunto le incluiremos los siguientes métodos: 
+\li conjunto<CMP>::conjunto(iterator ini, iterator fin);
+Constructor de conjunto que contiene los elementos contenidos en el rango [ini,fin)
+\li iterator conjunto<CMP>::find(const crimen & c);
+\li const_iterator conjunto<CMP>::find(const crimen & c)const;
+Hace la búsqueda binaria del elemento en el conjunto considerando el orden definido por CMP. Devuelve el iterador que apunta a la posición donde se encuetra el elemento o end() en caso contrario.
+\li iterator conjunto<CMP>::find(const long int & id);
+\li const_iterator conjunto<CMP>::find(const long int & id)const;
+En este caso, como no sabemos cómo están ordenados los elementos será necesario realizar una una búsqueda lineal.
+\li iterator lower_bound (const entrada & x);
+\li const_iterator lower_bound (const entrada & x) const;
+Devuelven un iterador al primer elemento en el contenedor que no precede a x en el conjunto, esto es, es equivalente a x o le sigue según la relacion de orden definida por CMP. Esta función utiliza el functor interno devolviendo un iterador al primer elemento, e, para el que se satisface que comp(e,x) es falso.
+\li iterator upper_bound (const entrada & x);
+\li const_iterator lower_bound (const entrada & x) const;
+ Devuelven un iterador al primer elemento  que sigue a x según la relacion de orden definida por CMP. Esta función utiliza el functor interno devolviendo un iterador al primer elemento, e,  para el que se satisface que comp(x,e) es cierto.
+
+
+Dicha entrega se debe realizar antes del Viernes 27 de Noviembre, a las 23:59 horas.
+
+*/

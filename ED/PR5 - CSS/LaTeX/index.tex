@@ -1,0 +1,268 @@
+\begin{DoxyVersion}{Version}
+v0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Juan F. Huete
+\end{DoxyAuthor}
+\hypertarget{index_NOTA}{}\section{N\+O\+T\+A I\+M\+P\+O\+R\+T\+A\+N\+T\+E}\label{index_NOTA}
+Esta práctica es individual, por lo que el alumno debe incluir una nota en la misma indicando que no ha utilizado material de otros compañeros o compañeras para su resolución. \hypertarget{index_intro_sec}{}\section{Introducción}\label{index_intro_sec}
+La ciudad de Chicago, en un intento de hacer un más flexible el acceso a los datos sobre delitos cometidos ha decidido replantearse un nuevo diseño del sistema de información que encargó a los alumnos en prácticas de la Universidad. Además de flexibilizar el acceso a los datos, otra de los requisitos que impone en el pliego de condiciones es que el acceso sea lo más eficiente posible. Este es un aspecto importante para el departamento ya que se esperan un alto número de consultas al sistema y este debe ser capaz de gestionarlas.
+
+Se debe diseñar un nuevo tipo de dato que llamaremos \hyperlink{classCSS}{C\+S\+S}, acrónimo de Crime Search System, que tiene que cumplir los siguientes requisitos\+:
+
+\begin{DoxyItemize}
+\item Permitir un acceso eficiente a los delitos por I\+D.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Permitir consultas por rango de fechas, por ejemplo se puede querer encontrar los delitos cometidos entre el 10 de Febrero de 2015 y el 30 de Marzo de 2015.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Consultar por I\+U\+C\+R (Illinois Unifor Crime Reporting), código del crimen del estado de Illinois que permite representar la tipología del delito. Este es un campo de tipo String, para el que es importante considerar el orden entre los elementos. El orden que se considerará para la comparación de I\+U\+C\+R será el lexicográfico. Así, por ejemplo, todos los crímenes comprendidos con código en el rango \mbox{[}261,300\mbox{]} representan “\+C\+R\+I\+M S\+E\+X\+U\+A\+L A\+S\+S\+A\+U\+L\+T”, la diferencia radica en la descripción secundaria del delito. Por ejemplo\end{DoxyItemize}
+\begin{DoxyItemize}
+\item I\+U\+C\+R 261 = “\+C\+R\+I\+M S\+E\+X\+U\+A\+L A\+S\+S\+A\+U\+L\+T”; A\+G\+G\+R\+A\+V\+A\+T\+E\+D\+: H\+A\+N\+D\+G\+U\+N \item I\+U\+C\+R 266 = “\+C\+R\+I\+M S\+E\+X\+U\+A\+L A\+S\+S\+A\+U\+L\+T”; P\+R\+E\+D\+A\+T\+O\+R\+Y\end{DoxyItemize}
+Una lista de la descripción del I\+U\+C\+R la podemos encontrar en
+
+\href{https://data.cityofchicago.org/Public-Safety/Chicago-Police-Department-Illinois-Uniform-Crime-R/c7ck-438e}{\tt https\+://data.\+cityofchicago.\+org/\+Public-\/\+Safety/\+Chicago-\/\+Police-\/\+Department-\/\+Illinois-\/\+Uniform-\/\+Crime-\/\+R/c7ck-\/438e}
+
+\begin{DoxyItemize}
+\item La novedad más importante será que se permite la consulta considerando la descripción del crimen, así un ciudadano podrá consultar por términos aislados en la descripción, por ejemplo podría consultar por “\+B\+A\+T\+T\+E\+R\+Y A\+S\+S\+A\+U\+L\+T H\+A\+N\+D\+G\+U\+N” y tendría como salida una secuencia ordenada de los delitos que contengan al menos una de estas palabras, de forma que cuanto mayor sea el número de palabras que aparecen en la descripción, mejor será la posición del delito en el orden (ocupará las primeras posiciones del mismo). Con la idea de facilitar las tareas de búsqueda, el usuario podrá indicar cuantos delitos desea que le sean retornados. Obviamente, el acceso a los datos se debe hacer lo más rápidamente posible pues el éxito del sistema depende en gran medida de esta consulta con texto libre que se pondrá a disposición del ciudadano. Para conseguir una mayor flexibilidad y potencia de las búsquedas, el departamento ha decidido que las búsquedas por términos tengan en cuenta los siguientes campos de la base de datos\+: Primary Type, Description y Location Description.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Se debe poder acceder de forma eficiente a los crímenes que han ocurrido en una determinada posición geográfica, determinada por un cuadrilátero que viene determinados por las coordenadas de longitud y latitud de los vértices superior izquierda e inferior derecha del mismo.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Dado el elevado número de delitos en la base de datos (más de 6 millones), se debe evitar duplicar la información de la base de datos, esto es, N\+O podemos crear distintos tipos de datos donde en cada uno de ellos se almacene un crimen completo, sino que la descripción completa del crimen se almacenará una única vez y habrá estructuras adicionales que nos faciliten alcanzar los objetivos planteados.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Se debe dotar de la capacidad de iterar sobre los crímenes, tanto por I\+D como por I\+U\+C\+R y fecha.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Finalmente, se desea poder disponer del sistema funcionando antes de Navidad del 2015, por lo que deberá estar entregada la solución el día 21 de diciembre de 2015 a las 23\+:59\end{DoxyItemize}
+\hypertarget{index_TDA}{}\section{Tipo de dato Crime\+Search}\label{index_TDA}
+La empresa de nueva creación E\+D\+G\+R\+X, ubicada en Granada, decide presentar su propuesta al departamento de policía. Para ello diseñan el tipo de dato \hyperlink{classCSS}{C\+S\+S} (Crime\+Search\+System),\hypertarget{index_publico}{}\subsection{Parte Pública}\label{index_publico}
+En la parte pública podemos distinguir tres tipos de datos\+:
+
+\begin{DoxyItemize}
+\item iterator que nos permite iterar por los delitos en orden creciente de I\+D \item Date\+\_\+iterator que nos permite iterar por los delitos en orden creciente de fecha, del más antiguo al más reciente. \item I\+U\+C\+R\+\_\+iterator que nos permite iterar según el valor del I\+U\+C\+R\end{DoxyItemize}
+Además, y entre otros métodos que sean de interés, se ofrecen los siguientes
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} load(String nombreDB);
+\textcolor{keywordtype}{void} insert( \textcolor{keyword}{const} \hyperlink{classcrimen}{crimen} & x);
+\textcolor{keywordtype}{void} erase( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ID);
+iterator find\_ID(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ID);
+\textcolor{keywordtype}{void} setArrest(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ID, \textcolor{keywordtype}{bool} value);
+
+vector<pair<ID,float> Query(list<\textcolor{keywordtype}{string} & q, \textcolor{keywordtype}{int} k);    
+list<ID> inArea(Longitud x1, Latitud y1, Longitud x2, Latitud y2 );
+
+\textcolor{comment}{/* Métodos relacionados con los iteradores */}
+IUCR\_iterator ibegin();
+IUCR\_iterator iend();
+IUCR\_iterator lower\_bound(IUCR);
+IUCR\_iterator upper\_bound(IUCR);
+
+Date\_iterator dbegin();
+Date\_iterator dend();
+Date\_iterator lower\_bound(Fecha);
+Date\_iterator upper\_bound(Fecha);
+
+iterator begin();
+iterator end();
+\end{DoxyCode}
+
+
+Los pasamos a ver con más detenimiento
+
+\begin{DoxyItemize}
+\item void load(\+String nombre\+D\+B);\end{DoxyItemize}
+Se encarga de leer los elementos de un fichero dado por el argumento nombre\+D\+B, e insertar toda la información en la base de datos. Recordad que para esta práctica se os pide que extendáis el campo descripción a todas las descripciones que se encuentra en la base de datos. Pare ello será necesario modificar la clase crimen utilizada en la práctica anterior.
+
+\begin{DoxyItemize}
+\item void insert( const crimen \& x);\end{DoxyItemize}
+Este método se encarga de insertar un nuevo crimen en \hyperlink{classCSS}{C\+S\+S}. Como prerrequisito se asume que el crimen no está ya almacenado en el conjunto. s \begin{DoxyItemize}
+\item bool erase( unsigned int I\+D);\end{DoxyItemize}
+En este caso, se trata de borrar un crimen de la base de datos dado su I\+D. Devuelve verdadero si el crimen ha sido borrado correctamente, falso en caso contrario.
+
+No sólo borra el crimen del repositorio principal de datos en \hyperlink{classCSS}{C\+S\+S} sino que además se encarga de borrar toda referencia a dicho crimen dentro de él.
+
+\begin{DoxyItemize}
+\item iterator find (const unsigned int I\+D);\end{DoxyItemize}
+Busca el crimen con identificador I\+D dentro de \hyperlink{classCSS}{C\+S\+S}, si no lo encuentra devuelve end()
+
+\begin{DoxyItemize}
+\item void set\+Arrest(const unsigned int I\+D, bool value);\end{DoxyItemize}
+Modifica el campo arrest de un crimen identificado por I\+D. Será necesario cuando se detenga un criminal con posterioridad a la inserción del delito en \hyperlink{classCSS}{C\+S\+S}.
+
+\begin{DoxyItemize}
+\item vector$<$pair$<$\+I\+D,float$>$ $>$ Query(list$<$string$>$ \& q, int k); Dada una consulta, expresada mediante un conjunto de términos en q, el sistema devuelve un vector ordenado con los k mejores I\+D (aquellos con mayor peso, definido como el número de términos de q que están en la descripción del delito), con sus respectivos pesos.\end{DoxyItemize}
+Cómo implementar esta función se explica en la sección “\+Consulta Libre” de este documento.
+
+\begin{DoxyItemize}
+\item list$<$\+I\+D$>$ in\+Area(\+Longitud x1, Latitud y1, Longitud x2, Latitud y2 );\end{DoxyItemize}
+Dada dos coordenadas geográficas, x e y, donde se asume que x1 $<$ x2 e y1 $>$ y2, nos devuelve la lista de I\+D que representan delitos que han sido cometidos dentro del área geográfica delimitada por las coordenadas.
+
+\begin{DoxyItemize}
+\item I\+U\+C\+R\+\_\+iterator lower\+\_\+bound(\+I\+U\+C\+R i); \item I\+U\+C\+R\+\_\+iterator upper\+\_\+bound(\+I\+U\+C\+R d); \item Date\+\_\+iterator lower\+\_\+bound(\+Fecha i); \item Date\+\_\+iterator upper\+\_\+bound(\+Fecha d);\end{DoxyItemize}
+Son métodos que permiten hacer la búsqueda por rango tanto considerando el I\+U\+C\+R como la Fecha del delito. El comportamiento es similar, lower\+\_\+bound devuelve el iterador que apunta primer delito con I\+U\+C\+R(\+Fecha) mayor o igual a i, mientras que upper\+\_\+bound devuelve el primer delito con I\+U\+C\+R(fecha) estrictamente mayor que d.
+
+\begin{DoxyItemize}
+\item I\+U\+C\+R\+\_\+iterator ibegin(); \item Date\+\_\+iterator dbegin(); \item iterator begin();\end{DoxyItemize}
+Devuelve el iterador correspondiente al primer delito que se encuentra según el criterio que sobre el que se itera.
+
+\begin{DoxyItemize}
+\item I\+U\+C\+R\+\_\+iterator iend(); \item Date\+\_\+iterator dend(); \item iterator end();\end{DoxyItemize}
+Devuelve el iterador que apunta al elemento siguiente al último delito en \hyperlink{classCSS}{C\+S\+S} según el criterio sobre el que se está itera.\hypertarget{index_privado}{}\subsection{Parte privada}\label{index_privado}
+En este caso hablaremos de los atributos que se han escogido para representar la información.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{typedef} \textcolor{keywordtype}{float} Longitud;
+\textcolor{keyword}{typedef} \textcolor{keywordtype}{float} Latitud;
+\textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ID;
+\textcolor{keyword}{typedef} \textcolor{keywordtype}{string} Termino;
+\textcolor{keyword}{typedef} \textcolor{keywordtype}{string} IUCR;
+
+\textcolor{keyword}{class }\hyperlink{classCSS}{CSS}\{
+\textcolor{keyword}{private}:
+    map<ID,Crimen> baseDatos; 
+
+    multimap<Date, map<ID,Crimen>::iterator > > DateAccess;
+
+    map<IUCR,set<ID> > IUCRAccess;
+
+    unordered\_map<Termino, set<ID> > index;
+    
+    map<Longitud,multimap<latitud, ID> > posicionGeo;
+
+\};
+\end{DoxyCode}
+
+
+Pasamos a detallar cada uno de ellos
+
+\begin{DoxyItemize}
+\item map$<$\+I\+D,\+Crimen$>$ base\+Datos;\end{DoxyItemize}
+Los distintos delitos se almacenan por orden creciente de I\+D en un diccionario (map), que llamaremos base\+Datos, donde la clave será el I\+D (ya que asumimos que no hay dos delitos con el mismo valor de I\+D), y en la descripción tenemos almacenada toda la información relativa al crimen.
+
+Es importante destacar que la inserción y borrado de elementos en el map no invalida los iteradores. Esto nos facilitará las labores de implementación de los métodos.
+
+\begin{DoxyItemize}
+\item multimap$<$Date, map$<$\+I\+D,\+Crimen$>$\+::iterator $>$ $>$ Date\+Access;\end{DoxyItemize}
+Esta estructura se utilizará para permitir un acceso eficiente por fecha. Como es importante la secuencia cronológica, consideraremos un contenedor asociativo. Además, como puede haber más de un crimen en la misma fecha hemos seleccionado como estructura el multimap. En el campo definición solamente almacenamos un iterador que apunta a la dirección del map donde se encuentra el elemento.
+
+Cuando un nuevo crimen se inserta en base\+Datos debemos de insertar la posición en la que se insertó en el multimap y en el caso de borrarlo de la base de datos, también debe ser borrado del multimap.
+
+\begin{DoxyItemize}
+\item map$<$I\+U\+C\+R,set$<$\+I\+D$>$ $>$ I\+U\+C\+R\+Access;\end{DoxyItemize}
+Esta estructura se utiliza para facilitar el acceso por I\+U\+C\+R, en este caso para cada I\+U\+C\+R tenemos el conjunto de delitos, representados por su I\+D, que han sido clasificados mediante dicho código. Utilizamos un map por ser importante el orden de los delitos dentro del conjunto.
+
+Esta estructura se actualiza cada vez que se inserta o borra un nuevo delito.
+
+\begin{DoxyItemize}
+\item unordered\+\_\+map$<$Termino, set$<$\+I\+D$>$ $>$ index;\end{DoxyItemize}
+En este caso, para cada termino en la descripción de un delito almacenamos en un conjunto ordenado los I\+Ds de los delitos que han sido descritos mediante dicho termino.
+
+Esta estructura se actualiza cada vez que se inserta o borra un nuevo delito.
+
+\begin{DoxyItemize}
+\item map$<$Longitud,multimap$<$\+Latitud, I\+D$>$ $>$ posicion\+Geo;\end{DoxyItemize}
+En este caso la posición geográfica la almacenamos en una estructura ordenada donde la clave, que asumimos única, se corresponde con la longitud donde se produce el delito. En este caso, los delitos están ordenados en orden creciente por este valor de coordenada. Para cada una de ellas almacenamos las coordenadas de latitud donde se cometió el delito. Como para una misma coordenada x,y puede haber más de un delito en el tiempo, se considera una estructura de multimap.
+
+Esta estructura se actualiza cada vez que se inserta o borra un nuevo delito.\hypertarget{index_iterando}{}\section{Iterando sobre C\+S\+S}\label{index_iterando}
+Se han definido distintos criterios para poder iterar sobre un \hyperlink{classCSS}{C\+S\+S}. Como se ha visto, para cada criterio guardamos una estructura que de forma eficiente me permite avanzar por los delitos siguiendo el orden establecido.
+
+Pasamos a ver cuál sería la representación interna que se propone para cada uno de ellos. 
+\begin{DoxyCode}
+\textcolor{keyword}{class }\hyperlink{classCSS}{CSS} \{
+\textcolor{keyword}{public}:
+
+
+    \textcolor{keyword}{class }iterator \{
+    \textcolor{keyword}{private}:
+        \textcolor{comment}{/* @brief it  itera sobre los ID del map }
+\textcolor{comment}{      */}
+        map<ID,Crimen>::iterator it;
+    \textcolor{keyword}{public}:
+           pair<const ID, Crimen > & operator*();   
+    
+    \};
+    \textcolor{keyword}{class }IUCR\_iterator \{
+    \textcolor{keyword}{private}:
+      \textcolor{comment}{/* @brief it\_m itera sobre los IUCR del map }
+\textcolor{comment}{      */}
+      map<IUCR,set<ID> >::iterator it\_m; 
+    \textcolor{comment}{/* @brief it\_s itera sobre los ID del set }
+\textcolor{comment}{      */}
+      set<ID>::iterator it\_s;
+    \textcolor{keyword}{public}: 
+        pair<const ID, Crimen > & operator*();
+
+     \};
+    \textcolor{keyword}{class }Date\_iterator \{
+\textcolor{keyword}{private}:
+         multimap<Date, map<ID,Crimen>::iterator > >::iterator it\_mm;
+      \textcolor{keyword}{public}:
+        pair<const ID, Crimen > & operator*();
+    
+     \};
+\end{DoxyCode}
+\hypertarget{index_métodosIt}{}\subsection{Algunos Métodos sobre iteradores}\label{index_métodosIt}
+En general los métodos sobre iteradores son sencillos de implementar, sólo hay que envolver los iteradores primitivos (sobre map o multimap) con el paraguas de la clase \hyperlink{classCSS}{C\+S\+S}. Sin embargo, hay algunas distinciones que se deberían hacer a la hora de abordar su implementación.
+
+\begin{DoxyItemize}
+\item Operador de derefernciación, operator$\ast$().\end{DoxyItemize}
+En este caso, el valor devuelto por el operador $\ast$ de todos los iteradores es pair$<$const I\+D,\+Crimen$>$ \&
+
+
+\begin{DoxyCode}
+pair<const ID, Crimen > &  operator*();   
+\end{DoxyCode}
+
+
+Notar el const I\+D, dentro del primer campo del pair. Esto se hace para evitar que se pueda modificar dicha clave desde fuera de \hyperlink{classCSS}{C\+S\+S}. Los valores de la definición si se pueden modificar. Asumimos que el usuario no modificará el I\+D de la definición del crimen, para no permitir que un crimen tuviese distintos valores de I\+D en la clave y en la definición. Lo ideal sería que no estuviese el I\+D dentro del crimen.
+
+El el caso del iterator, y también Date\+\_\+iterator su implementación es simple, sólo tenemos que devolver el pair que se accede directamente de it o bien accediendo al elemento que esta en la posición second del it\+\_\+mm
+
+Sin embargo, para el I\+U\+C\+R iterator que internamente tiene dos atributos\+: el primero que itera sobre el map y el segundo que itera sobre el set. Este segundo atributo es que realmente hace referencia al I\+D del delito concreto al que apunta el iterador. Por tanto, para obtener el pair que debemos devolver sólo debemos de coger el I\+D apuntado por it\+\_\+s, esto es, $\ast$it\+\_\+s y buscar el crimen con ese I\+D en el map, por ejemplo haciendo base\+Datos.\+find($\ast$it\+\_\+s)
+
+\begin{DoxyItemize}
+\item I\+U\+C\+R\+\_\+iterator \& operator++();\end{DoxyItemize}
+La implementación requiere avanzar al siguiente delito en el orden correcto, para ello es suficiente con avanzar el it\+\_\+s hasta que se alcance el final del set, en cuyo caso debemos avanzar it\+\_\+m al siguiente I\+U\+C\+R del map, y posicionarnos en lo que sería el primer elemento de su set correspondiente, si existe.\hypertarget{index_consulta}{}\section{Consulta Libre}\label{index_consulta}
+Veamos cómo implementar el siguiente método de forma eficiente 
+\begin{DoxyCode}
+vector<pair<ID,float> > Query(list<string> & q, \textcolor{keywordtype}{int} k);   
+\end{DoxyCode}
+
+
+Para ello utilizaremos la estructura index que está en el \hyperlink{classCSS}{C\+S\+S}. Esta estructura es un unorderd\+\_\+map, que para cada término tiene el conjunto de I\+D para los que dicho término forma parte de la descripción. 
+\begin{DoxyCode}
+unordered\_map<Termino, set<ID> > index;
+\end{DoxyCode}
+
+
+Así podemos distinguir tres casos\+:
+
+\begin{DoxyItemize}
+\item 1) Si la lista tiene un único termino, buscamos el término en el index y devolvemos una lista con todos los I\+D del conjunto asocidado, con el valor second del par a 1.\+0; \item 2) Si la lista tiene dos términos, debemos hacer una unión de las dos listas de I\+Ds asociadas a los términos, pero en el caso en que exista un I\+D que esté en ambos conjuntos (los dos términos están en la descripción del I\+D), debemos contar su peso como 2, en caso contrario como los I\+Ds pertenecen sólo a una lista y por tanto su peso será 1. En este proceso se puede aprovechar que los conjuntos están ordenados en orden creciente de I\+D. Para ello, podemos diseñar un método privado de la clase \hyperlink{classCSS}{C\+S\+S} con el siguiente prototipo\end{DoxyItemize}
+
+\begin{DoxyCode}
+map<ID,float> unionPeso( \textcolor{keyword}{const} set<ID> & t1, \textcolor{keyword}{const} set<ID> &t2); 
+\end{DoxyCode}
+
+
+\begin{DoxyItemize}
+\item 3) Más de dos términos.\end{DoxyItemize}
+En este caso, podemos utilizar el método anterior para hacer la unión de las dos primeras listas de I\+D, y utilizar el siguiente método para ir actualizando en el map la información asociada al resto de términos de la consulta 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} unionPeso( map<ID,float> & m, set<ID> & t\_i);
+\end{DoxyCode}
+
+
+Así podemos hacer algo como 
+\begin{DoxyCode}
+Para cada termino t\_i de la consulta, con i = 3, 4, …
+   Obtener el set<ID> asociado a t\_i, s\_i
+   unionPeso(mi\_map, s\_i)
+\end{DoxyCode}
+\hypertarget{index_ordenar}{}\subsection{Selección de los k mejores elementos}\label{index_ordenar}
+Al finalizar el proceso anterior, tenemos en el map los I\+D con su peso asociado, el paso final sería ordenar estos elementos por el valor del peso. Dado que el conjunto de crímenes es del orden de 6 millones de registros podemos esperar que el conjunto de elementos a ordenar será muy grande, del orden de decenas de miles. Sin embargo, nosotros sólo necesitamos seleccionar los k (por ejemplo, 50 elementos con mayor peso).
+
+Para hacer este proceso eficiente se debe utilizar una priority\+\_\+queue, donde se insertarán elementos de forma que el que tenga menor peso esté en el tope de la cola. Esta cola nunca tendrá un tamaño mayor que k.
+
+Recorreremos el map resultante de la etapa anterior e insertaremos los primeros k elementos. Para el resto de elementos, iteramos sobre ellos y comprobaremos si el peso del elemento apuntado por el iterador, it, es mayor que el elemento que está en el tope. De ser cierto, se sacará este elemento de la cola y se sustituirá por el elemento apuntado por it. En caso contrario lo podemos descartar pues estamos seguros que dicho delito no estará entre los k primeros. 
