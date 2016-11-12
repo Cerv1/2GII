@@ -1,0 +1,46 @@
+
+
+*******************************************************************************
+Tue Apr  5 11:16:19 2016
+
+
+FIT:    data read from 'salida10millones-basico.dat'
+        format = z
+        #datapoints = 400
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 5.31415e+16       delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 8.15027e+06
+
+initial set of free parameter values
+
+a               = 1
+b               = 1
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 100.228
+rel. change during last iteration : -3.02167e-06
+
+degrees of freedom    (FIT_NDF)                        : 398
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.501826
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.251829
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = -7.35205e-08     +/- 4.346e-09    (5.911%)
+b               = 0.999998         +/- 0.05009      (5.009%)
+
+
+correlation matrix of the fit parameters:
+
+               a      b      
+a               1.000 
+b              -0.866  1.000 

@@ -1,0 +1,397 @@
+
+
+*******************************************************************************
+Mon May 23 18:49:30 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*e**(b*x)
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Mon May 23 18:49:56 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*3.1416**(b*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 9.0203200315e+15   0.00e+00  3.30e+08    1.000000e+00   1.000000e+00
+  10 3.8524551913e+04   0.00e+00  3.30e-02   -4.742442e-01  -1.316768e+01
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 38524.6
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 12
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 56.6602
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3210.38
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = -0.474244        +/- 2.684e+28    (5.66e+30%)
+b               = -13.1677         +/- 1.686e+28    (1.28e+29%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b               1.000  1.000 
+
+
+*******************************************************************************
+Mon May 23 18:52:59 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=3.1416**(a*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a            
+   0 9.0203200315e+15   0.00e+00  4.66e+08    1.000000e+00
+  18 1.9283142624e+04  -3.93e-02  4.66e-10    2.511914e-01
+
+After 18 iterations the fit converged.
+final sum of squares of residuals : 19283.1
+rel. change during last iteration : -3.9318e-07
+
+degrees of freedom    (FIT_NDF)                        : 13
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 38.5139
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1483.32
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 0.251191         +/- 0.01505      (5.993%)
+
+
+*******************************************************************************
+Mon May 23 18:53:55 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=(a*3.1416)**(b*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 3.8514983723e+04   0.00e+00  7.87e-01    2.511914e-01   1.000000e+00
+   4 1.9283142061e+04  -2.76e-02  7.87e-01    1.351507e+00   1.988589e-01
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 19283.1
+rel. change during last iteration : -2.76415e-07
+
+degrees of freedom    (FIT_NDF)                        : 12
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 40.0865
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1606.93
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.35151          +/- 2083         (1.541e+05%)
+b               = 0.198859         +/- 211.7        (1.065e+05%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -1.000  1.000 
+
+
+*******************************************************************************
+Mon May 23 18:54:24 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=(a*2)**(b*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 3.0192879190e+04   0.00e+00  3.11e+01    1.351507e+00   1.988589e-01
+   6 1.9283146773e+04  -2.95e-01  3.11e-01    1.372968e+00   2.846207e-01
+
+After 6 iterations the fit converged.
+final sum of squares of residuals : 19283.1
+rel. change during last iteration : -2.95107e-06
+
+degrees of freedom    (FIT_NDF)                        : 12
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 40.0865
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1606.93
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.37297          +/- 4.341e+04    (3.161e+06%)
+b               = 0.284621         +/- 8903         (3.128e+06%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -1.000  1.000 
+
+
+*******************************************************************************
+Mon May 23 18:54:51 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=2**x
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Mon May 23 18:54:58 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=2**x
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'x' is zero.
+iter      chisq       delta/lim  lambda   x            
+   0 5.6998107537e+09   0.00e+00  0.00e+00    1.000000e-30
+BREAK: Singular matrix in Givens()
+
+*******************************************************************************
+Mon May 23 18:57:13 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a*2**b*x
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 3.0719324565e+04   0.00e+00  1.78e+01    1.000000e+00   1.000000e+00
+   2 3.0577216996e+04  -1.37e-02  1.78e-01    1.100144e+00   1.069404e+00
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 30577.2
+rel. change during last iteration : -1.36948e-07
+
+degrees of freedom    (FIT_NDF)                        : 12
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 50.4787
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2548.1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.10014          +/- 7.881e+12    (7.164e+14%)
+b               = 1.0694           +/- 1.033e+13    (9.661e+14%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -1.000  1.000 
+
+
+*******************************************************************************
+Mon May 23 18:57:59 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=(a*2)**(b*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 6.4369954152e+11   0.00e+00  3.28e+06    1.100144e+00   1.069404e+00
+   7 3.8524554688e+04  -8.74e-05  3.28e-01    2.139839e+00  -6.872596e-01
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 38524.6
+rel. change during last iteration : -8.73533e-10
+
+degrees of freedom    (FIT_NDF)                        : 12
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 56.6602
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3210.38
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 2.13984          +/- 1.113e+07    (5.201e+08%)
+b               = -0.68726         +/- 2.459e+06    (3.577e+08%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b               1.000  1.000 
+
+
+*******************************************************************************
+Mon May 23 18:59:23 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: h(x)
+	h(x)=(a*x)!
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Mon May 23 18:59:32 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: h(x)
+	h(x)=x!
+fitted parameters initialized with current variable values
+
+BREAK: no parameter specified
+
+*******************************************************************************
+Mon May 23 18:59:34 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: h(x)
+	h(x)=x!
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Mon May 23 18:59:49 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: h(x)
+	h(x)=a*x!
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Mon May 23 19:01:23 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: exp(x)
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Mon May 23 19:01:42 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a*exp(b*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 9.1318463211e+13   0.00e+00  2.89e+07    1.000000e+00   1.000000e+00
+  10 3.8524551913e+04  -3.51e-01  2.89e-03   -5.800462e+01  -8.270037e+01
+
+After 10 iterations the fit converged.
+final sum of squares of residuals : 38524.6
+rel. change during last iteration : -3.5062e-06
+
+degrees of freedom    (FIT_NDF)                        : 12
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 56.6602
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3210.38
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = -58.0046         +/- 9.3e+145     (1.603e+146%)
+b               = -82.7004         +/- 6.035e+143   (7.297e+143%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b               1.000  1.000 
+
+
+*******************************************************************************
+Mon May 23 19:02:16 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a*exp(b*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 3.8524551913e+04   0.00e+00  4.29e-105  -5.800462e+01  -8.270037e+01
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Mon May 23 19:03:08 2016
+
+
+FIT:    data read from 'datosBT.dat'
+        format = z
+        #datapoints = 14
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*exp(b*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 3.8524551913e+04   0.00e+00  0.00e+00    7.016477e+97 -2.200217e+100
+BREAK: Singular matrix in Givens()
