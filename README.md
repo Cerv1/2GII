@@ -4,11 +4,8 @@
  * [Estructura de Computadores](/EC)
  * [Programación y Diseño Orientado a Objetos](/PDOO)
  * [Sistemas Concurrentes y Distribuidos](/SCD)
- * [Sistemas Operativos](/SO)
  * [Arquitectura de Computadores](/AC)
- * [Algorítmica](/AL)
- * [Fundamentos de Bases de Datos](/FBD)
- * [Fundamentos de Ingeniería del Software](/FIS)
+ * [Algorítmica](/ALG)
  * [Inteligencia Artificial](/IA)
 
 
