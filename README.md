@@ -2,7 +2,7 @@
  
  * [Estructuras de Datos](/ED)
  * [Estructura de Computadores](/EC)
- * [Programación y Diseño Orientado a Objetos // Private repository at the moment.](/PDOO)
+ * [Programación y Diseño Orientado a Objetos](/PDOO)
  * [Sistemas Concurrentes y Distribuidos](/SCD)
  * [Sistemas Operativos](/SO)
  * [Arquitectura de Computadores](/AC)
