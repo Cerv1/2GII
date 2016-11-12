@@ -1,0 +1,141 @@
+0,* APRUEBO IA ^,*,*,Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10#Comma entre teoria y practicas.,Nivel 0.aiml
+0,* APROBAR IA ^,*,*,Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10#Comma entre teoria y practicas.,Nivel 0.aiml
+0,* APROBARIAS IA ^,*,*,Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10#Comma entre teoria y practicas.,Nivel 0.aiml
+0,* APRUEBO INTELIGENCIA ARTIFICIAL ^,*,*,Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10#Comma entre teoria y practicas.,Nivel 0.aiml
+0,* APROBAR INTELIGENCIA ARTIFICIAL ^,*,*,Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10#Comma entre teoria y practicas.,Nivel 0.aiml
+0,* APROBARIAS INTELIGENCIA ARTIFICIAL ^,*,*,Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10#Comma entre teoria y practicas.,Nivel 0.aiml
+0,* APROBAR LA TEORIA ^,*,*,Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además#Comma durante el curso se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5#Comma 1 y 0.5 respectivamente). Pues bien#Comma la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.,Nivel 0.aiml
+0,* APRUEBO LA TEORIA ^,*,*,Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además#Comma durante el curso	se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5#Comma 1 y 0.5 respectivamente). Pues bien#Comma la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.,Nivel 0.aiml
+0,* APROBAR LA PARTE TEORICA ^,*,*,Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además#Comma durante el curso	se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5#Comma 1 y 0.5 respectivamente). Pues bien#Comma la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.,Nivel 0.aiml
+0,* SUPERAR LA PARTE TEORICA ^,*,*,Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además#Comma durante el curso	se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5#Comma 1 y 0.5 respectivamente). Pues bien#Comma la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.,Nivel 0.aiml
+0,* SUPERAR LA PARTE PRACTICA ^,*,*,Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%).,Nivel 0.aiml
+0,* SUPERO LA PARTE PRACTICA ^,*,*,Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%).,Nivel 0.aiml
+0,* APROBAR LA PARTE PRACTICA ^,*,*,Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%).,Nivel 0.aiml
+0,* APROBAR LAS PRACTICAS ^,*,*,Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%).,Nivel 0.aiml
+0,* SUPERAR LAS PRACTICAS ^,*,*,Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%).,Nivel 0.aiml
+0,* SE EVALUA EN ^ JUNIO,*,*,<srai> * aprobar la parte practica  ^ </srai> <srai> * aprobar la parte teorica  ^ </srai>,Nivel 0.aiml
+0,* SE PUNTUA EN ^ JUNIO,*,*,<srai> * aprobar la parte practica  ^ </srai> <srai> * aprobar la parte teorica  ^ </srai>,Nivel 0.aiml
+0,* TENGO QUE * CONVOCATORIA DE SEPTIEMBRE ^,*,*,En la convocatoria de Septiembre habra un examen escrito unico y no habra entrega de practicas en esta convocatoria.,Nivel 0.aiml
+0,* TENGO QUE * EXAMEN DE SEPTIEMBRE ^,*,*,En la convocatoria de Septiembre habra un examen escrito unico y no habra entrega de practicas en esta convocatoria.,Nivel 0.aiml
+0,* EXAMEN DE PRACTICAS EN LA CONVOCATORIA DE SEPTIEMBRE ^,*,*,<srai>* tengo que * convocatoria de septiembre ^ </srai>,Nivel 0.aiml
+0,* EXAMEN DE PRACTICAS EN EL EXAMEN DE SEPTIEMBRE ^,*,*,<srai>* tengo que * convocatoria de septiembre ^ </srai>,Nivel 0.aiml
+0,* EXAMEN DE PRACTICAS EN SEPTIEMBRE ^,*,*,<srai>* tengo que * convocatoria de septiembre ^ </srai>,Nivel 0.aiml
+0,* NO PUEDO ASISTIR A CLASE REGULARMENTE ^,*,*,En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final.,Nivel 0.aiml
+0,* NO PUEDO IR A CLASE REGULARMENTE ^,*,*,En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final.,Nivel 0.aiml
+0,* NO PUEDO ASISTIR A CLASE HABITUALMENTE ^,*,*,En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final.,Nivel 0.aiml
+0,* NO PUEDO IR A CLASE HABITUALMENTE ^,*,*,En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final.,Nivel 0.aiml
+0,* NOTA MINIMA PARA APROBAR ^,*,*,No#Comma <srai> * apruebo IA ^ </srai>,Nivel 0.aiml
+0,^ LAS PRACTICAS ^ OBLIGATORIAS ^,*,*,Cuentan 5 puntos y su asistencia es obligatoria... Asi que yo que tu las hacia.,Nivel 0.aiml
+0,* CADA PRACTICA ^ RESPECTO A LA NOTA FINAL ^,*,*,Las practicas 1#Comma 2 y 3 puntuan un 25% cada una y el ultimo examen de problemas vale el otro 25%.,Nivel 0.aiml
+0,* LA PARTICIPACION ^ RESPECTO A LA NOTA FINAL ^,*,*,La asistencia y la participacion en las clases vale un 10% de la nota de practicas.,Nivel 0.aiml
+0,* CADA GUION ^ RESPECTO A LA NOTA FINAL ^,*,*,<srai>* cada practica ^ respecto a la nota final ^ </srai>,Nivel 0.aiml
+0,* CONSIGUEN PUNTOS POR PARTICIPACION,*,*,Se podran resolver en clase algunos problemas propuestos.,Nivel 0.aiml
+0,* CONSIGUEN PUNTOS POR PARTICIPAR ^,*,*,Se podran resolver en clase algunos problemas propuestos.,Nivel 0.aiml
+0,* CONSIGO PUNTOS POR PARTICIPACION,*,*,Se podran resolver en clase algunos problemas propuestos.,Nivel 0.aiml
+0,* CONSIGO PUNTOS POR PARTICIPAR ^,*,*,Se podran resolver en clase algunos problemas propuestos.,Nivel 0.aiml
+0,* LO MINIMO QUE NECESITO PARA APROBAR ^,*,*,<srai> * apruebo IA ^ </srai>,Nivel 0.aiml
+0,* LO MINIMO QUE NECESITO PARA SUPERAR *,*,*,<srai> * apruebo IA ^ </srai>,Nivel 0.aiml
+0,* TRABAJOS ^ INDIVIDUALES ^,*,*,Si#Comma los trabajos deben de ser entregados y realizados de manera individual.,Nivel 0.aiml
+0,* TRABAJOS EN GRUPO ^,*,*,No#Comma los trabajos deben de ser entregados y realizados de manera individual.,Nivel 0.aiml
+0,* TRABAJOS EN GRUPOS ^,*,*,No#Comma los trabajos deben de ser entregados y realizados de manera individual.,Nivel 0.aiml
+0,* TRABAJOS GRUPALES ^,*,*,No#Comma los trabajos deben de ser entregados y realizados de manera individual.,Nivel 0.aiml
+0,* ENTREGAR ^ LOS EJERCICIOS DE LAS RELACIONES DE PROBLEMAS ^,*,*,Siempre y cuando el profesor lo requiera#Comma si.,Nivel 0.aiml
+0,* TENGO QUE ESTUDIAR ^,*,*,Porque algun dia tendras que terminar la carrera#Comma ¿no?.,Nivel 0.aiml
+0,* VALE EL PRIMER EXAMEN DE TEORIA ^,*,*,El primer examen de teoria vale 0#Comma5 puntos.,Nivel 0.aiml
+0,* CUENTA EL PRIMER EXAMEN DE TEORIA ^,*,*,El primer examen de teoria vale 0#Comma5 puntos.,Nivel 0.aiml
+0,* PUNTUA EL PRIMER EXAMEN DE TEORIA ^,*,*,El primer examen de teoria vale 0#Comma5 puntos.,Nivel 0.aiml
+0,* TENER UNA NOTA MAYOR A 10 ^,*,*,No. En el caso de que salga una nota superior esta será truncada a 10 puntos.,Nivel 0.aiml
+0,* SACAR UNA NOTA MAYOR A 10 ^,*,*,No. En el caso de que salga una nota superior esta será truncada a 10 puntos,Nivel 0.aiml
+0,* OBTENER UNA NOTA MAYOR A 10 ^,*,*,No. En el caso de que salga una nota superior esta será truncada a 10 puntos,Nivel 0.aiml
+0,* RECUPERAR ^ PRACTICA * EXAMEN ^,*,*,No. No se puede recuperar ninguna practica ni examen.,Nivel 0.aiml
+0,* SI ME COPIO DE * ESTUDIANTE ^,*,*,Iras a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME COPIO DE * ESTUDIANTES ^,*,*,Iras a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME COPIO DE * COMPAÑERO ^,*,*,Iras a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME COPIO DE * COMPAÑEROS ^,*,*,Iras a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME DEJO COPIAR DE * ESTUDIANTE ^,*,*,Ireis a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME DEJO COPIAR DE * ESTUDIANTES ^,*,*,Ireis a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME DEJO COPIAR DE * COMPAÑERO ^,*,*,Ireis a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME DEJO COPIAR DE * COMPAÑEROS ^,*,*,Ireis a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SI ME DEJO COPIAR DE * ALUMNO ^,*,*,Ireis a Septiembre directamente con un 0 en la convocatoria.,Nivel 0.aiml
+0,* SUSPENDO EN LA CONVOCATORIA DE JUNIO ^,*,*,Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.,Nivel 0.aiml
+0,* SUSPENDO EL EXAMEN DE JUNIO ^,*,*,Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.,Nivel 0.aiml
+0,* NO APRUEBO EN LA CONVOCATORIA DE JUNIO ^,*,*,Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.,Nivel 0.aiml
+0,* NO APRUEBO EN EL EXAMEN DE JUNIO ^,*,*,Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.,Nivel 0.aiml
+0,* VALE LA ^ PRACTICA Y LA ^ TEORICA ^,*,*,La teoria al igual que la practica#Comma valen 5 puntos cada una.,Nivel 0.aiml
+0,* VALE LA ^ PRACTICA Y LA ^ TEORIA ^,*,*,La teoria al igual que la practica#Comma valen 5 puntos cada una.,Nivel 0.aiml
+0,* VALE LA PRACTICA Y LA TEORIA ^,*,*,La teoria al igual que la practica#Comma valen 5 puntos cada una.,Nivel 0.aiml
+0,* VALEN LAS PRACTICAS Y LA TEORIA ^,*,*,La teoria al igual que la practica#Comma valen 5 puntos cada una.,Nivel 0.aiml
+0,* HORARIO DE TUTORIAS DEL PROFESOR DE PRACTICAS ^,*,*,Martes de 08:30 a 09:30 y de 11:30 a 13:30 en D40 (ETSIIT). Miercoles de 08:30 a 09:30 y de 11:30 a 13:30 en D40 (ETSIIT).,Nivel 0.aiml
+0,* CORREO ^ DEL PROFESOR DE ^ TEORIA ^,*,*,Su correo es: A.Gonzalez@decsai.ugr.es,Nivel 0.aiml
+0,* LA PRACTICA DE ^ SI NO * UNA PRACTICA ^,*,*,Claro#Comma siempre y cuando al sumar la nota obtenida en las otras sea superior a 5.,Nivel 0.aiml
+0,* LA PRACTICA DE ^ SI NO * UNA ^ PRACTICAS ^,*,*,Claro#Comma siempre y cuando al sumar la nota obtenida en las otras sea superior a 5.,Nivel 0.aiml
+0,* LAS PRACTICAS DE ^ SI NO * UNA PRACTICA ^,*,*,Claro#Comma siempre y cuando al sumar la nota obtenida en las otras sea superior a 5.,Nivel 0.aiml
+0,* LAS PRACTICAS DE ^ SI NO * UNA ^ PRACTICAS ^,*,*,Claro#Comma siempre y cuando al sumar la nota obtenida en las otras sea superior a 5.,Nivel 0.aiml
+0,* NOTA MINIMA QUE TENGO QUE OBTENER EN CADA PARTE PARA HACER MEDIA ^,*,*,No se necesita ninguna nota minima. Para aprobar la asignatura solamente es necesario superar la nota de 5 entre ambas partes.,Nivel 0.aiml
+0,* NOTA MINIMA QUE TENGO QUE SACAR EN CADA PARTE PARA HACER MEDIA ^,*,*,No se necesita ninguna nota minima. Para aprobar la asignatura solamente es necesario superar la nota de 5 entre ambas partes.,Nivel 0.aiml
+0,* OBTENGO EN LA PRACTICA 1 SI * DEFENDER EL NIVEL 3 Y NO LO *,*,*,Obtendra la calificacion de un 5 en la practica.,Nivel 0.aiml
+0,* SACO EN LA PRACTICA 1 SI * DEFENDER EL NIVEL 3 Y NO LO *,*,*,Obtendra la calificacion de un 5 en la practica.,Nivel 0.aiml
+0,* TENGO EN LA PRACTICA 1 SI * DEFENDER EL NIVEL 3 Y NO LO *,*,*,Obtendra la calificacion de un 5 en la practica.,Nivel 0.aiml
+0,* TENGO EN LA PRACTICA 1 SI ME PRESENTO AL NIVEL 3 Y NO LO *,*,*,Obtendra la calificacion de un 5 en la practica.,Nivel 0.aiml
+0,* OBTENGO EN LA PRACTICA 1 SI ME PRESENTO AL NIVEL 3 Y NO LO *,*,*,Obtendra la calificacion de un 5 en la practica.,Nivel 0.aiml
+0,* SACO EN LA PRACTICA 1 SI ME PRESENTO AL NIVEL 3 Y NO LO *,*,*,Obtendra la calificacion de un 5 en la practica.,Nivel 0.aiml
+0,* ENTREGAR LA PRACTICA 1 SIN HACER * AL NIVEL 0,*,*,No#Comma para avanzar a los niveles superiores debes de completar los anteriores.,Nivel 0.aiml
+0,* PRESENTAR LA PRACTICA 1 SIN HACER * AL NIVEL 0,*,*,No#Comma para avanzar a los niveles superiores debes de completar los anteriores.,Nivel 0.aiml
+0,* SI NO PUEDO * PRACTICAS EN LA QUE * HACER LA DEFENSA DE MI PRACTICA ^,*,*,Deberas de enviarle un correo al profesor de practicas y llegar a un acuerdo entre ambos. Sera lo mas acertado.,Nivel 0.aiml
+0,* SI NO PUEDO * PRACTICAS EN LA QUE * HACER LA DEFENSA DE LA MIA ^,*,*,Deberas de enviarle un correo al profesor de practicas y llegar a un acuerdo entre ambos. Sera lo mas acertado.,Nivel 0.aiml
+0,* EXAMENES DE TEORIA TENDRE * CURSO ^,*,*,Tendras 3 pruebas teoricas.,Nivel 0.aiml
+0,* PRUEBAS DE TEORIA TENDRE * CURSO ^,*,*,Tendras 3 pruebas teoricas.,Nivel 0.aiml
+0,* PRUEBAS TEORICAS TENDRE * CURSO ^,*,*,Tendras 3 pruebas teoricas.,Nivel 0.aiml
+0,* VALE LA PRIMERA PRUEBA TEORICA ^,*,*,<srai> * vale el primer examen de teoria ^ </srai>,Nivel 0.aiml
+0,* CUENTA LA PRIMERA PRUEBA TEORICA ^,*,*,<srai> * vale el primer examen de teoria ^ </srai>,Nivel 0.aiml
+0,* TEORIA SE TIENE EN CUENTA LA ASISTENCIA ^,*,*,No#Comma la asistencia a las clases de teoria no sera obligatoria.,Nivel 0.aiml
+0,* TEORICA SE TIENE EN CUENTA LA ASISTENCIA ^,*,*,No#Comma la asistencia a las clases de teoria no sera obligatoria.,Nivel 0.aiml
+0,* CONSISTE EL EXAMEN DE EJERCICIOS ^,*,*,Se te pedira que resuelvas algunos problemas parecidos a los ya vistos y resueltos en clase.,Nivel 0.aiml
+0,* TRATA EL EXAMEN DE EJERCICIOS ^,*,*,Se te pedira que resuelvas algunos problemas parecidos a los ya vistos y resueltos en clase.,Nivel 0.aiml
+0,* VA EL EXAMEN DE EJERCICIOS ^,*,*,Se te pedira que resuelvas algunos problemas parecidos a los ya vistos y resueltos en clase.,Nivel 0.aiml
+0,* OCURRE SI NO QUIERO DEFENDER UNA PRACTICA ^,*,*,En ese caso... No podras obtener nota por esa practica.,Nivel 0.aiml
+0,* PASA SI NO QUIERO DEFENDER UNA PRACTICA ^,*,*,En ese caso... No podras obtener nota por esa practica.,Nivel 0.aiml
+0,* OCURRE SI NO ESTOY SEGURO DE PODER SUPERAR EL NIVEL ^ DE LA PRACTICA ^,*,*,En este caso deberias intentar el nivel 2#Comma porque en caso de intentarlo y no superarlo#Comma seras calificado con un 5 en la practica 1.,Nivel 0.aiml
+0,* PASA SI NO ESTOY SEGURO DE PODER SUPERAR EL NIVEL ^ DE LA PRACTICA ^,*,*,En este caso deberias intentar el nivel 2#Comma porque en caso de intentarlo y no superarlo#Comma seras calificado con un 5 en la practica 1.,Nivel 0.aiml
+0,* OCURRE SI NO ESTOY SEGURO DE PODER PASAR EL NIVEL ^ DE LA PRACTICA ^,*,*,En este caso deberias intentar el nivel 2#Comma porque en caso de intentarlo y no superarlo#Comma seras calificado con un 5 en la practica 1.,Nivel 0.aiml
+0,* PASA SI NO ESTOY SEGURO DE PODER PASAR EL NIVEL ^ DE LA PRACTICA ^,*,*,En este caso deberias intentar el nivel 2#Comma porque en caso de intentarlo y no superarlo#Comma seras calificado con un 5 en la practica 1.,Nivel 0.aiml
+0,* DEBERIA HACER SI NO ESTOY SEGURO DE PODER SUPERAR EL NIVEL ^ DE LA PRACTICA ^,*,*,En este caso deberias intentar el nivel 2#Comma porque en caso de intentarlo y no superarlo#Comma seras calificado con un 5 en la practica 1.,Nivel 0.aiml
+0,* DEBERIA HACER SI NO ESTOY SEGURO DE PODER PASAR EL NIVEL ^ DE LA PRACTICA ^,*,*,En este caso deberias intentar el nivel 2#Comma porque en caso de intentarlo y no superarlo#Comma seras calificado con un 5 en la practica 1.,Nivel 0.aiml
+0,* PRACTICAS ENTREGABLES TIENE LA ASIGNATURA ^,*,*,La asignatura tiene 3 practicas entregables a lo largo del curso#Comma cada una con un peso del 25% de la nota de practicas.,Nivel 0.aiml
+0,* PRACTICAS ENTREGABLES TIENE IA ^,*,*,La asignatura tiene 3 practicas entregables a lo largo del curso#Comma cada una con un peso del 25% de la nota de practicas.,Nivel 0.aiml
+0,* PROGRAMO MUY BIEN EN C++ PODRIA HACER LAS PRACTICAS EN ESE LENGUAJE ^,*,*,No. Las practicas deben de ser realizadas en el lenguaje propuesto#Comma en este caso#Comma AIML.,Nivel 0.aiml
+0,* MUY BIEN EN C++ PODRIA HACER LAS PRACTICAS EN ESE LENGUAJE ^,*,*,No. Las practicas deben de ser realizadas en el lenguaje propuesto#Comma en este caso#Comma AIML.,Nivel 0.aiml
+0,* AIML PODRIA HACER LAS PRACTICAS * OTRO LENGUAJE ^,*,*,<srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai>,Nivel 0.aiml
+0,* AIML PODRIA HACER LA PRACTICA * OTRO LENGUAJE ^,*,*,<srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai>,Nivel 0.aiml
+0,* AIML PODRIA REALIZAR LAS PRACTICAS * OTRO LENGUAJE ^,*,*,<srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai>,Nivel 0.aiml
+0,* AIML PODRIA REALIZAR LA PRACTICA * OTRO LENGUAJE ^,*,*,<srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai>,Nivel 0.aiml
+0,* ESTA LA OFICINA DEL PROFESOR DE ^ PRACTICAS ^,*,*,Lo podras encontrar en la D40 (4ª planta) de la ETSIIT.,Nivel 0.aiml
+0,* ESTA EL DESPACHO DEL PROFESOR DE ^ PRACTICAS ^,*,*,Lo podras encontrar en la D40 (4ª planta) de la ETSIIT.,Nivel 0.aiml
+0,* ESTA LA OFICINA DEL PROFESOR DE ^ TEORIA ^,*,*,<srai> * esta la oficina del profesor de practicas ^ </srai>,Nivel 0.aiml
+0,* ESTA EL DESPACHO DEL PROFESOR DE ^ TEORIA ^,*,*,<srai> * esta la oficina del profesor de practicas ^ </srai>,Nivel 0.aiml
+0,^ SUMO 15 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LAS PRACTICAS ^,*,*,No#Comma ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.,Nivel 0.aiml
+0,^ ALCANZO 15 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LAS PRACTICAS ^,*,*,No#Comma ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.,Nivel 0.aiml
+0,^ SUMO 15 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LA PARTE PRACTICA ^,*,*,No#Comma ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.,Nivel 0.aiml
+0,^ ALCANZO 15 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LA PARTE PRACTICA ^,*,*,No#Comma ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.,Nivel 0.aiml
+0,^ SUMO 20 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LAS PRACTICAS ^,*,*,Sí#Comma ya que obtendrías un 5 en las practicas.,Nivel 0.aiml
+0,^ ALCANZO 20 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LAS PRACTICAS ^,*,*,Sí#Comma ya que obtendrías un 5 en las practicas.,Nivel 0.aiml
+0,^ SUMO 20 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LA PARTE PRACTICA ^,*,*,Sí#Comma ya que obtendrías un 5 en las practicas.,Nivel 0.aiml
+0,^ ALCANZO 20 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LA PARTE PRACTICA ^,*,*,Sí#Comma ya que obtendrías un 5 en las practicas.,Nivel 0.aiml
+0,^ SUMO 20 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO ESO ME ASEGURA APROBAR LA ASIGNATURA ^,*,*,Sí#Comma ya que obtendrías un 5 en las practicas.,Nivel 0.aiml
+0,* TARDE A LA ASIGNATURA Y NO PUDE HACER LA PRACTICA 1 PUEDO RECUPERAR ESA PRACTICA ^,*,*,No#Comma las practicas no son recuperables.,Nivel 0.aiml
+0,* TARDE A LA ASIGNATURA Y NO PUDE REALIZAR LA PRACTICA 1 PUEDO RECUPERAR ESA PRACTICA ^,*,*,No#Comma las practicas no son recuperables.,Nivel 0.aiml
+0,* TARDE A LA ASIGNATURA Y NO PUDE HACER LA PRACTICA 1 PUEDO RECUPERARLA ^,*,*,No#Comma las practicas no son recuperables.,Nivel 0.aiml
+0,* TARDE A LA ASIGNATURA Y NO PUDE REALIZAR LA PRACTICA 1 PUEDO RECUPERARLA ^,*,*,No#Comma las practicas no son recuperables.,Nivel 0.aiml
+0,ME INCORPORE TARDE A LA ASIGNATURA Y NO PUDE HACER LA PRACTICA 1 TENGO POSIBILIDADES DE APROBAR LA PARTE PRACTICA ^,*,*,Si#Comma ya que puedes obtener aun un 75% de la nota de la parte de practicas.,Nivel 0.aiml
+0,ME INCORPORE TARDE A LA ASIGNATURA Y NO PUDE HACER LA PRACTICA 1 TENGO ALGUNA POSIBILIDAD DE APROBAR LA PARTE PRACTICA ^,*,*,Si#Comma ya que puedes obtener aun un 75% de la nota de la parte de practicas.,Nivel 0.aiml
+0,ME INCORPORE TARDE A LA ASIGNATURA Y NO PUDE HACER LA PRACTICA 1 TENGO POSIBILIDADES DE APROBAR LAS PRACTICAS ^,*,*,Si#Comma ya que puedes obtener aun un 75% de la nota de la parte de practicas.,Nivel 0.aiml
+0,^ ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN EXPERTO EN SU CONSTRUCCION PODRIA USAR AGENTES CONVERSACIONALES PARA QUE VAYAN EN MI LUGAR A HACER LA DEFENSA DE PRACTICAS ^,*,*,No#Comma por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano#Comma y ademas debes de ser tu.,Nivel 0.aiml
+0,^ ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN EXPERTO EN SU CONSTRUCCION PODRIA USAR AGENTES CONVERSACIONALES PARA QUE HAGAN EN MI LUGAR LA DEFENSA DE ^ PRACTICAS ^,*,*,No#Comma por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano#Comma y ademas debes de ser tu.,Nivel 0.aiml
+0,^ ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN EXPERTO EN SU CONSTRUCCION PODRIA USARLOS PARA QUE VAYAN EN MI LUGAR A HACER LA DEFENSA DE PRACTICAS ^,*,*,No#Comma por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano#Comma y ademas debes de ser tu.,Nivel 0.aiml
+0,^ ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN EXPERTO EN SU CONSTRUCCION PODRIA USARLOS PARA QUE HAGAN EN MI LUGAR LA DEFENSA DE ^ PRACTICAS ^,*,*,No#Comma por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano#Comma y ademas debes de ser tu.,Nivel 0.aiml
+0,EN LAS SIGUIENTES PRACTICAS ^ HAY TAMBIEN QUE PROGRAMAR ^,*,*,Si#Comma hay que programar en todas ellas.,Nivel 0.aiml
+0,EN LAS SIGUIENTES PRACTICAS ^ TENGO TAMBIEN QUE PROGRAMAR ^,*,*,Si#Comma hay que programar en todas ellas.,Nivel 0.aiml
+0,EL NIVEL ^ ES MUY FACIL EL RESTO DE LA PRACTICA SE COMPLICA *,*,*,La verdad es que se complica bastante#Comma sobre todo en el nivel 3.,Nivel 0.aiml
+0,EL NIVEL ^ ES MUY SENCILLO EL RESTO DE LA PRACTICA SE COMPLICA *,*,*,La verdad es que se complica bastante#Comma sobre todo en el nivel 3.,Nivel 0.aiml
+0,EL NIVEL ^ ES FACIL EL RESTO DE LA PRACTICA SE COMPLICA *,*,*,La verdad es que se complica bastante#Comma sobre todo en el nivel 3.,Nivel 0.aiml
+0,EL NIVEL ^ ES SENCILLO EL RESTO DE LA PRACTICA SE COMPLICA *,*,*,La verdad es que se complica bastante#Comma sobre todo en el nivel 3.,Nivel 0.aiml

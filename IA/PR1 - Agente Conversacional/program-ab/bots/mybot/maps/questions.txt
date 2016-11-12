@@ -1,0 +1,14 @@
+1:풲u personaje es mujer?
+2:풲u personaje es hombre entonces?
+3:풲u personaje tiene el pelo rubio?
+4:풲u personaje tiene el pelo moreno?
+5:풲u personaje tiene el pelo rojo?
+6:풲u personaje tiene el pelo blanco?
+7:풲u personaje es calvo?
+8:풲u personaje tiene la piel oscura?
+9:풲u personaje tiene la piel clara?
+10:풲u personaje tiene los ojos claros?
+11:풲u personaje tiene los ojos oscuros?
+12:풲u personaje tiene gafas?
+13:풲u personaje tiene barba?
+14:풲u personaje tiene bigote?

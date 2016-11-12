@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- REGLAS PARA LA PREGUNTA 1 - ¿COMO APRUEBO IA? -->
+
+<!-- 	Regla 1 	-->
+<category>
+	<pattern>* apruebo IA ^</pattern>
+	<template>Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10, entre teoria y practicas.</template>
+</category>
+
+<!-- 	Regla 2 	-->
+<category>
+	<pattern>* aprobar IA ^</pattern>
+	<template>Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10, entre teoria y practicas.</template>
+</category>
+
+<!-- 	Regla 3		-->
+<category>
+	<pattern>* aprobarias IA ^</pattern>
+	<template>Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10, entre teoria y practicas.</template>
+</category>
+
+<!-- 	Regla 4 	-->
+<category>
+	<pattern>* apruebo Inteligencia Artificial ^</pattern>
+	<template>Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10, entre teoria y practicas.</template>
+</category>
+
+<!-- 	Regla 5 	-->
+<category>
+	<pattern>* aprobar Inteligencia Artificial ^</pattern>
+	<template>Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10, entre teoria y practicas.</template>
+</category>
+
+<!-- 	Regla 6		-->
+<category>
+	<pattern>* aprobarias Inteligencia Artificial ^</pattern>
+	<template>Para aprobar IA deberás obtener una puntuacion minima de 5 puntos sobre 10, entre teoria y practicas.</template>
+</category>
+
+<!-- REGLAS PARA LA PREGUNTA 2 - ¿COMO HAGO PARA APROBAR LA TEORIA? -->
+
+<!-- 	Regla 1		-->
+<category>
+	<pattern>* aprobar la teoria ^</pattern>
+	<template>Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además, durante el curso se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5, 1 y 0.5 respectivamente). Pues bien, la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.
+	</template>
+</category>
+
+<!-- 	Regla 2		-->
+<category>
+	<pattern>* apruebo la teoria ^</pattern>
+	<template>Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además, durante el curso	se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5, 1 y 0.5 respectivamente). Pues bien, la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.
+	</template>
+</category>
+
+<!-- 	Regla 3		-->
+<category>
+	<pattern>* apruebo la teoria ^</pattern>
+	<template>Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además, durante el curso	se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5, 1 y 0.5 respectivamente). Pues bien, la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.
+	</template>
+</category>
+
+<!-- 	Regla 4		-->
+<category>
+	<pattern>* aprobar la parte teorica ^</pattern>
+	<template>Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además, durante el curso	se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5, 1 y 0.5 respectivamente). Pues bien, la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.
+	</template>
+</category>
+
+<!-- 	Regla 5		-->
+<category>
+	<pattern>* superar la parte teorica ^</pattern>
+	<template>Para aprobar la teoria se realizara un examen final que se valorara sobre 10 puntos. Además, durante el curso	se realizaran tres pruebas que conjuntamente podrían dar un maximo de 2 puntos sobre el examen final ( se valoraran 0.5, 1 y 0.5 respectivamente). Pues bien, la nota final de teoria seria el minimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.
+	</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 3 - ¿COMO CONSIGO SUPERAR LA PARTE PRACTICA? -->
+
+<!-- 	Regla 1		-->
+<category>
+	<pattern>* superar la parte practica  ^</pattern>
+	<template>Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%). </template>
+</category>
+
+<!-- 	Regla 2		-->
+<category>
+	<pattern>* supero la parte practica  ^</pattern>
+	<template>Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%). </template>
+</category>
+
+<!-- 	Regla 3		-->
+<category>
+	<pattern>* aprobar la parte practica  ^</pattern>
+	<template>Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%). </template>
+</category>
+
+<!-- 	Regla 4		-->
+<category>
+	<pattern>* aprobar la parte practica  ^</pattern>
+	<template>Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%). </template>
+</category>
+
+<!-- 	Regla 5		-->
+<category>
+	<pattern>* aprobar las practicas  ^</pattern>
+	<template>Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%). </template>
+</category>
+
+<!-- 	Regla 6		-->
+<category>
+	<pattern>* superar las practicas  ^</pattern>
+	<template>Para aprobar la parte practica se puntuara la asistencia y participacion en clase (10%) y la calificacion de varias practicas/pruebas (90%). </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 4 - ¿COMO SE EVALUA EN LA CONVOCATORIA DE JUNIO? -->
+
+<!-- 	Regla 1		-->
+<category>
+	<pattern>* se evalua en ^ junio</pattern>
+	<template>
+		<srai> * aprobar la parte practica  ^ </srai> <srai> * aprobar la parte teorica  ^ </srai>
+	</template>
+</category>
+
+<!-- 	Regla 2		-->
+<category>
+	<pattern>* se puntua en ^ junio</pattern>
+	<template>
+		<srai> * aprobar la parte practica  ^ </srai> <srai> * aprobar la parte teorica  ^ </srai>
+	 </template>
+</category>
+
+<!-- REGLAS PARA LA PREGUNTA 5 - ¿QUE PASA SI TENGO QUE PRESENTARME EN LA CONVOCATORIA DE SEPTIEMBRE? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* tengo que * convocatoria de septiembre ^</pattern>
+	<template>En la convocatoria de Septiembre habra un examen escrito unico y no habra entrega de practicas en esta convocatoria.</template>
+</category>
+
+<!--	Regla 2 	-->
+<category>
+	<pattern>* tengo que * examen de septiembre ^</pattern>
+	<template>En la convocatoria de Septiembre habra un examen escrito unico y no habra entrega de practicas en esta convocatoria.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 6 - ¿HAY EXAMEN DE PRACTICAS EN LA CONVOCATORIA DE SEPTIEMBRE? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* examen de practicas en la convocatoria de septiembre ^</pattern>
+	<template><srai>* tengo que * convocatoria de septiembre ^ </srai> </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* examen de practicas en el examen de septiembre ^</pattern>
+	<template><srai>* tengo que * convocatoria de septiembre ^ </srai> </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* examen de practicas en septiembre ^</pattern>
+	<template><srai>* tengo que * convocatoria de septiembre ^ </srai> </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 7 - ¿QUE PASA SI NO PUEDO ASISTIR A CLASE REGULARMENTE? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* no puedo asistir a clase regularmente ^</pattern>
+	<template>En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* no puedo ir a clase regularmente ^</pattern>
+	<template>En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final.</template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* no puedo asistir a clase habitualmente ^</pattern>
+	<template>En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* no puedo ir a clase habitualmente ^</pattern>
+	<template>En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final. </template>
+</category>
+
+<!--	Regla 5		-->
+<category>
+	<pattern>* no puedo ir a clase habitualmente ^</pattern>
+	<template>En las clases de teoria la asistencia no es obligatoria pero en practicas si. Lo mejor que podrias hacer es optar por la evaluacion unica final. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 8 - ¿HAY NOTA MINIMA PARA APROBAR? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* nota minima para aprobar ^</pattern>
+	<template>No, <srai> * apruebo IA ^ </srai> </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 9 - ¿LAS PRACTICAS SON OBLIGATORIAS? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>^ las practicas ^ obligatorias ^</pattern>
+	<template>Cuentan 5 puntos y su asistencia es obligatoria... Asi que yo que tu las hacia. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 10 - ¿CUANTO VALE CADA PRACTICA CON RESPECTO A LA NOTA FINAL? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* cada practica ^ respecto a la nota final ^</pattern>
+	<template>Las practicas 1, 2 y 3 puntuan un 25% cada una y el ultimo examen de problemas vale el otro 25%. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 11 - ¿CUANTO VALE LA PARTICIPACION CON RESPECTO A LA NOTA FINAL? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* la participacion ^ respecto a la nota final ^</pattern>
+	<template>La asistencia y la participacion en las clases vale un 10% de la nota de practicas. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 12 - ¿CUANTO VALE CADA GUION DE PRACTICAS CON RESPECTO A LA NOTA FINAL? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* cada guion ^ respecto a la nota final ^</pattern>
+	<template> <srai>* cada practica ^ respecto a la nota final ^ </srai> </template>
+</category>
+
+<!-- REGLAS PARA LA PREGUNTA 13 - ¿COMO SE CONSIGUEN PUNTOS POR PARTICIPACION? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* consiguen puntos por participacion</pattern>
+	<template>Se podran resolver en clase algunos problemas propuestos.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* consiguen puntos por participar ^</pattern>
+	<template>Se podran resolver en clase algunos problemas propuestos. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* consigo puntos por participacion</pattern>
+	<template>Se podran resolver en clase algunos problemas propuestos. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* consigo puntos por participar ^</pattern>
+	<template>Se podran resolver en clase algunos problemas propuestos.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 14 - ¿QUE ES LO MINIMO QUE NECESITO PARA APROBAR LA ASIGNATURA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* lo minimo que necesito para aprobar ^</pattern>
+	<template><srai> * apruebo IA ^ </srai></template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* lo minimo que necesito para superar *</pattern>
+	<template><srai> * apruebo IA ^ </srai></template>
+</category>
+
+<!-- REGLAS PARA LA PREGUNTA 15 - ¿LOS TRABAJOS SON INDIVIDUALES? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* trabajos ^ individuales ^</pattern>
+	<template>Si, los trabajos deben de ser entregados y realizados de manera individual.  </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 16 - ¿SE PUEDEN HACER LOS TRABAJOS EN GRUPO? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* trabajos en grupo ^</pattern>
+	<template>No, los trabajos deben de ser entregados y realizados de manera individual.  </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* trabajos en grupos ^</pattern>
+	<template>No, los trabajos deben de ser entregados y realizados de manera individual.  </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* trabajos grupales ^</pattern>
+	<template>No, los trabajos deben de ser entregados y realizados de manera individual.  </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 17 - ¿HAY QUE ENTREGAR LOS EJERCICIOS DE LAS RELACIONES DE PROBLEMAS? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* entregar ^ los ejercicios de las relaciones de problemas ^</pattern>
+	<template>Siempre y cuando el profesor lo requiera, si. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 18 - ¿POR QUE TENGO QUE ESTUDIAR? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* tengo que estudiar ^</pattern>
+	<template>Porque algun dia tendras que terminar la carrera, ¿no?. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 19 - ¿CUANTO VALE EL PRIMER EXAMEN DE TEORIA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* vale el primer examen de teoria ^</pattern>
+	<template>El primer examen de teoria vale 0,5 puntos. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* cuenta el primer examen de teoria ^</pattern>
+	<template>El primer examen de teoria vale 0,5 puntos. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* puntua el primer examen de teoria ^</pattern>
+	<template>El primer examen de teoria vale 0,5 puntos. </template>
+</category>
+
+<!-- REGLAS PARA LA PREGUNTA 20 - ¿PUEDO TENER UNA NOTA MAYOR A 10? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* tener una nota mayor a 10 ^</pattern>
+	<template>No. En el caso de que salga una nota superior esta será truncada a 10 puntos. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* sacar una nota mayor a 10 ^</pattern>
+	<template>No. En el caso de que salga una nota superior esta será truncada a 10 puntos  </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* obtener una nota mayor a 10 ^</pattern>
+	<template>No. En el caso de que salga una nota superior esta será truncada a 10 puntos  </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 21 - ¿PUEDO RECUPERAR UNA PRACTICA O EXAMEN? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* recuperar ^ practica * examen ^</pattern>
+	<template>No. No se puede recuperar ninguna practica ni examen. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 22 - ¿QUE PASA SI ME COPIO DE OTRO ESTUDIANTE? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* si me copio de * estudiante ^</pattern>
+	<template>Iras a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* si me copio de * estudiantes ^</pattern>
+	<template>Iras a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* si me copio de * compañero ^</pattern>
+	<template>Iras a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* si me copio de * compañeros ^</pattern>
+	<template>Iras a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 23 - ¿QUE PASA SI ME DEJO COPIAR DE OTRO ESTUDIANTE? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* si me dejo copiar de * estudiante ^</pattern>
+	<template>Ireis a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* si me dejo copiar de * estudiantes ^</pattern>
+	<template>Ireis a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* si me dejo copiar de * compañero ^</pattern>
+	<template>Ireis a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* si me dejo copiar de * compañeros ^</pattern>
+	<template>Ireis a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 5		-->
+<category>
+	<pattern>* si me dejo copiar de * alumno ^</pattern>
+	<template>Ireis a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+<!--	Regla 6		-->
+<category>
+	<pattern>* si me dejo copiar de * alumno ^</pattern>
+	<template>Ireis a Septiembre directamente con un 0 en la convocatoria. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 24 - ¿Y SI SUSPENDO EN LA CONVOCATORIA DE JUNIO? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* suspendo en la convocatoria de Junio ^</pattern>
+	<template>Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* suspendo el examen de Junio ^</pattern>
+	<template>Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.</template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* no apruebo en la convocatoria de Junio ^</pattern>
+	<template>Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.</template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* no apruebo en el examen de Junio ^</pattern>
+	<template>Podras presentarte a la convocatoria de Septiembre para intentar aprobar la asignatura pero con los medios de evaluacion de dicha convocatoria.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 25 - ¿CUANTO VALE LA PRACTICA Y LA TEORIA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* vale la ^ practica y la ^ teorica ^ </pattern>
+	<template>La teoria al igual que la practica, valen 5 puntos cada una.</template>
+</category>
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* vale la ^ practica y la ^ teoria ^ </pattern>
+	<template>La teoria al igual que la practica, valen 5 puntos cada una.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* vale la practica y la  teoria ^ </pattern>
+	<template>La teoria al igual que la practica, valen 5 puntos cada una.</template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* valen las practicas y la teoria ^ </pattern>
+	<template>La teoria al igual que la practica, valen 5 puntos cada una.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 26 - ¿CUAL ES EL HORARIO DE TUTORIAS DEL PROFESOR DE PRACTICAS? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* horario de tutorias del profesor de practicas ^ </pattern>
+	<template>Martes de 08:30 a 09:30 y de 11:30 a 13:30 en D40 (ETSIIT). Miercoles de 08:30 a 09:30 y de 11:30 a 13:30 en D40 (ETSIIT). </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 27 - ¿CUAL ES EL CORREO ELECTRONICO DEL PROFESOR DE TEORIA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* correo ^ del profesor de ^ teoria ^ </pattern>
+	<template>Su correo es: A.Gonzalez@decsai.ugr.es </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 28 - ¿SE PUEDE APROBAR LA PARTE PRACTICA DE LA ASIGNATURA SI NO PRESENTO UNA PRACTICA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* la practica de ^ si no * una practica ^ </pattern>
+	<template>Claro, siempre y cuando al sumar la nota obtenida en las otras sea superior a 5. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* la practica de ^ si no * una ^ practicas ^ </pattern>
+	<template>Claro, siempre y cuando al sumar la nota obtenida en las otras sea superior a 5. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* las practicas de ^ si no * una practica ^ </pattern>
+	<template>Claro, siempre y cuando al sumar la nota obtenida en las otras sea superior a 5. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* las practicas de ^ si no * una ^ practicas ^ </pattern>
+	<template>Claro, siempre y cuando al sumar la nota obtenida en las otras sea superior a 5. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 29 - ¿CUAL ES LA NOTA MINIMA QUE TENGO QUE OBTENER EN CADA PARTE PARA HACER MEDIA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* nota minima que tengo que obtener en cada parte para hacer media ^ </pattern>
+	<template>No se necesita ninguna nota minima. Para aprobar la asignatura solamente es necesario superar la nota de 5 entre ambas partes. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* nota minima que tengo que sacar en cada parte para hacer media ^ </pattern>
+	<template>No se necesita ninguna nota minima. Para aprobar la asignatura solamente es necesario superar la nota de 5 entre ambas partes. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 30 - ¿QUE PUNTUACION OBTENGO EN LA PRACTICA 1 SI OPTO POR DEFENDER EL NIVEL 3 Y NO LO SUPERO? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* obtengo en la practica 1 si * defender el nivel 3 y no lo * </pattern>
+	<template>Obtendra la calificacion de un 5 en la practica. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* saco en la practica 1 si * defender el nivel 3 y no lo * </pattern>
+	<template>Obtendra la calificacion de un 5 en la practica. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* tengo en la practica 1 si * defender el nivel 3 y no lo * </pattern>
+	<template>Obtendra la calificacion de un 5 en la practica. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* tengo en la practica 1 si me presento al nivel 3 y no lo * </pattern>
+	<template>Obtendra la calificacion de un 5 en la practica. </template>
+</category>
+
+<!--	Regla 5		-->
+<category>
+	<pattern>* obtengo en la practica 1 si me presento al nivel 3 y no lo * </pattern>
+	<template>Obtendra la calificacion de un 5 en la practica. </template>
+</category>
+
+<!--	Regla 6		-->
+<category>
+	<pattern>* saco en la practica 1 si me presento al nivel 3 y no lo * </pattern>
+	<template>Obtendra la calificacion de un 5 en la practica. </template>
+</category>
+
+<!-- REGLAS PARA LA PREGUNTA 31 - ¿PUEDO ENTREGAR LA PRACTICA 1 SIN HACER LA TAREA RELATIVA AL NIVEL 0? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* entregar la practica 1 sin hacer * al nivel 0 </pattern>
+	<template>No, para avanzar a los niveles superiores debes de completar los anteriores. </template>
+</category>
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* presentar la practica 1 sin hacer * al nivel 0 </pattern>
+	<template>No, para avanzar a los niveles superiores debes de completar los anteriores. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 32 - ¿QUE TENGO QUE HACER SI NO PUEDO ASISTIR A LA SESION DE
+	   PRACTICAS EN LA QUE ME CORRESPONDE HACER LA DEFENSA DE MI PRACTICA 1? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* si no puedo * practicas en la que * hacer la defensa de mi practica ^</pattern>
+	<template>Deberas de enviarle un correo al profesor de practicas y llegar a un acuerdo entre ambos. Sera lo mas acertado.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* si no puedo * practicas en la que * hacer la defensa de la mia ^</pattern>
+	<template>Deberas de enviarle un correo al profesor de practicas y llegar a un acuerdo entre ambos. Sera lo mas acertado.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 33 - ¿CUANTAS PRUEBAS TEORICAS TENDRE A LO LARGO DEL CURSO? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* pruebas teoricas tendre * curso ^</pattern>
+	<template>Tendras 3 pruebas teoricas. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* examenes de teoria tendre * curso ^</pattern>
+	<template>Tendras 3 pruebas teoricas. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* pruebas de teoria tendre * curso ^</pattern>
+	<template>Tendras 3 pruebas teoricas. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* pruebas teoricas tendre * curso ^</pattern>
+	<template> Tendras 3 pruebas teoricas. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 34 - ¿QUE VALE LA PRIMERA PRUEBA TEORICA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* vale la primera prueba teorica ^</pattern>
+	<template><srai> * vale el primer examen de teoria ^ </srai> </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* cuenta la primera prueba teorica ^</pattern>
+	<template><srai> * vale el primer examen de teoria ^ </srai> </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 35 - ¿EN LA PARTE TEORICA SE TIENE EN CUENTA LA ASISTENCIA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* teoria se tiene en cuenta la asistencia ^</pattern>
+	<template>No, la asistencia a las clases de teoria no sera obligatoria. </template>
+</category>
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* teorica se tiene en cuenta la asistencia ^</pattern>
+	<template>No, la asistencia a las clases de teoria no sera obligatoria. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 36 - ¿EN QUE CONSISTE EL EXAMEN DE EJERCICIOS? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* consiste el examen de ejercicios ^</pattern>
+	<template>Se te pedira que resuelvas algunos problemas parecidos a los ya vistos y resueltos en clase. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* trata el examen de ejercicios ^</pattern>
+	<template>Se te pedira que resuelvas algunos problemas parecidos a los ya vistos y resueltos en clase. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* va el examen de ejercicios ^</pattern>
+	<template>Se te pedira que resuelvas algunos problemas parecidos a los ya vistos y resueltos en clase. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 37 - ¿QUE OCURRE SI NO QUIERO DEFENDER UNA PRACTICA?? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* ocurre si no quiero defender una practica ^</pattern>
+	<template>En ese caso... No podras obtener nota por esa practica. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* pasa si no quiero defender una practica ^</pattern>
+	<template>En ese caso... No podras obtener nota por esa practica. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 38 - ¿QUE DEBERÍA HACER SI NO ESTOY SEGURO DE PODER SUPERAR EL NIVEL 3 DE LA PRÁCTICA 1? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* ocurre si no estoy seguro de poder superar el nivel ^ de la practica ^</pattern>
+	<template>En este caso deberias intentar el nivel 2, porque en caso de intentarlo y no superarlo, seras calificado con un 5 en la practica 1. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* pasa si no estoy seguro de poder superar el nivel ^ de la practica ^</pattern>
+	<template>En este caso deberias intentar el nivel 2, porque en caso de intentarlo y no superarlo, seras calificado con un 5 en la practica 1. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* ocurre si no estoy seguro de poder pasar el nivel ^ de la practica ^</pattern>
+	<template>En este caso deberias intentar el nivel 2, porque en caso de intentarlo y no superarlo, seras calificado con un 5 en la practica 1. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* pasa si no estoy seguro de poder pasar el nivel ^ de la practica ^</pattern>
+	<template>En este caso deberias intentar el nivel 2, porque en caso de intentarlo y no superarlo, seras calificado con un 5 en la practica 1. </template>
+</category>
+
+<!--	Regla 5		-->
+<category>
+	<pattern>* deberia hacer si no estoy seguro de poder superar el nivel ^ de la practica ^</pattern>
+	<template>En este caso deberias intentar el nivel 2, porque en caso de intentarlo y no superarlo, seras calificado con un 5 en la practica 1. </template>
+</category>
+
+<!--	Regla 6		-->
+<category>
+	<pattern>* deberia hacer si no estoy seguro de poder pasar el nivel ^ de la practica ^</pattern>
+	<template>En este caso deberias intentar el nivel 2, porque en caso de intentarlo y no superarlo, seras calificado con un 5 en la practica 1. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 39 - ¿CUANTAS PRACTICAS ENTREGABLES TIENE LA ASIGNATURA?-->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* practicas entregables tiene la asignatura ^</pattern>
+	<template>La asignatura tiene 3 practicas entregables a lo largo del curso, cada una con un peso del 25% de la nota de practicas. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* practicas entregables tiene IA ^</pattern>
+	<template>La asignatura tiene 3 practicas entregables a lo largo del curso, cada una con un peso del 25% de la nota de practicas. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 40 - ¿YO PROGRAMO MUY BIEN EN C++, PODRIA HACER LAS PRACTICAS EN ESE LENGUAJE? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^</pattern>
+	<template>No. Las practicas deben de ser realizadas en el lenguaje propuesto, en este caso, AIML.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>*  muy bien en c++ podria hacer las practicas en ese lenguaje ^</pattern>
+	<template>No. Las practicas deben de ser realizadas en el lenguaje propuesto, en este caso, AIML.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 41 - ¿ODIO AIML, PODRIA HACER LAS PRACTICAS CON OTRO LENGUAJE? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* AIML podria hacer las practicas * otro lenguaje ^</pattern>
+	<template><srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai></template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* AIML podria hacer la practica * otro lenguaje ^</pattern>
+	<template><srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai></template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* AIML podria realizar las practicas * otro lenguaje ^</pattern>
+	<template><srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai></template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* AIML podria realizar la practica * otro lenguaje ^</pattern>
+	<template><srai>* programo muy bien en c++ podria hacer las practicas en ese lenguaje ^ </srai></template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 42 - ¿DONDE ESTA LA OFICINA DEL PROFESOR DE PRACTICAS? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* esta la oficina del profesor de ^ practicas ^ </pattern>
+	<template>Lo podras encontrar en la D40 (4ª planta) de la ETSIIT.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* esta el despacho del profesor de ^ practicas ^ </pattern>
+	<template>Lo podras encontrar en la D40 (4ª planta) de la ETSIIT.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 43 - ¿DONDE ESTA EL DESPACHO DEL PROFESOR DE TEORIA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* esta la oficina del profesor de ^ teoria ^ </pattern>
+	<template><srai> * esta la oficina del profesor de practicas ^ </srai></template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* esta el despacho del profesor de ^ teoria ^ </pattern>
+	<template><srai> * esta la oficina del profesor de practicas ^ </srai></template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 44 - ¿SUMO 15 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO, ESO ME ASEGURA APROBAR LAS PRACTICAS? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>^ sumo 15 puntos en las practicas que ya he hecho eso me asegura aprobar las practicas ^ </pattern>
+	<template>No, ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>^ alcanzo 15 puntos en las practicas que ya he hecho eso me asegura aprobar las practicas ^ </pattern>
+	<template>No, ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.</template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>^ sumo 15 puntos en las practicas que ya he hecho eso me asegura aprobar la parte practica ^ </pattern>
+	<template>No, ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.</template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>^ alcanzo 15 puntos en las practicas que ya he hecho eso me asegura aprobar la parte practica ^ </pattern>
+	<template>No, ya que cuentan un 25% cada una. Entonces se te puede quedar por debajo del 5 aun teniendo 15 puntos.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 45 - ¿SUMO 20 PUNTOS EN LAS PRACTICAS QUE YA HE HECHO, ESO ME ASEGURA APROBAR LA ASIGNATURA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>^ sumo 20 puntos en las practicas que ya he hecho eso me asegura aprobar las practicas ^ </pattern>
+	<template>Sí, ya que obtendrías un 5 en las practicas.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>^ alcanzo 20 puntos en las practicas que ya he hecho eso me asegura aprobar las practicas ^ </pattern>
+	<template>Sí, ya que obtendrías un 5 en las practicas.</template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>^ sumo 20 puntos en las practicas que ya he hecho eso me asegura aprobar la parte practica ^ </pattern>
+	<template>Sí, ya que obtendrías un 5 en las practicas.</template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>^ alcanzo 20 puntos en las practicas que ya he hecho eso me asegura aprobar la parte practica ^ </pattern>
+	<template>Sí, ya que obtendrías un 5 en las practicas.</template>
+</category>
+
+<!--	Regla 5		-->
+<category>
+	<pattern>^ sumo 20 puntos en las practicas que ya he hecho eso me asegura aprobar la asignatura ^ </pattern>
+	<template>Sí, ya que obtendrías un 5 en las practicas.</template>
+</category>
+
+<!--	Regla 6		-->
+<category>
+	<pattern>^ sumo 20 puntos en las practicas que ya he hecho eso me asegura aprobar la asignatura ^ </pattern>
+	<template>Sí, ya que obtendrías un 5 en las practicas.</template>
+</category>
+
+<!-- REGLAS PARA LA PREGUNTA 46 - ¿ME INCORPORE TARDE A LA ASIGNATURA Y NO PUDE HACER LA PRACTICA 1, PUEDO RECUPERAR ESA PRACTICA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>* tarde a la asignatura y no pude hacer la practica 1 puedo recuperar esa practica ^ </pattern>
+	<template>No, las practicas no son recuperables.</template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>* tarde a la asignatura y no pude realizar la practica 1 puedo recuperar esa practica ^ </pattern>
+	<template>No, las practicas no son recuperables.</template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>* tarde a la asignatura y no pude hacer la practica 1 puedo recuperarla ^ </pattern>
+	<template>No, las practicas no son recuperables.</template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>* tarde a la asignatura y no pude realizar la practica 1 puedo recuperarla ^ </pattern>
+	<template>No, las practicas no son recuperables.</template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 47 - ¿ME INCORPORE TARDE A LA ASIGNATURA Y NO PUDE HACER LA PRACTICA 1, TENGO POSIBILIDADES DE APROBAR LA PARTE PRACTICA? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>Me incorpore tarde a la asignatura y no pude hacer la practica 1 tengo posibilidades de aprobar la parte practica ^</pattern>
+	<template>Si, ya que puedes obtener aun un 75% de la nota de la parte de practicas. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>Me incorpore tarde a la asignatura y no pude hacer la practica 1 tengo alguna posibilidad de aprobar la parte practica ^</pattern>
+	<template>Si, ya que puedes obtener aun un 75% de la nota de la parte de practicas. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>Me incorpore tarde a la asignatura y no pude hacer la practica 1 tengo posibilidades de aprobar las practicas ^</pattern>
+	<template>Si, ya que puedes obtener aun un 75% de la nota de la parte de practicas. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>Me incorpore tarde a la asignatura y no pude hacer la practica 1 tengo posibilidades de aprobar las practicas ^</pattern>
+	<template>Si, ya que puedes obtener aun un 75% de la nota de la parte de practicas. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 48 - ¿ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN EXPERTO EN SU CONSTRUCCIÓN. PODRIA USAR AGENTES CONVERSACIONALES PARA QUE
+		VAYAN EN MI LUGAR A HACER LA DEFENSA DE PRACTICAS? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>^ me encantan los agentes conversacionales y soy un experto en su construccion podria usar agentes conversacionales para que vayan en mi lugar a hacer la defensa de practicas ^</pattern>
+	<template>No, por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano, y ademas debes de ser tu.  </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>^ me encantan los agentes conversacionales y soy un experto en su construccion podria usar agentes conversacionales para que hagan en mi lugar la defensa de ^ practicas ^</pattern>
+	<template>No, por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano, y ademas debes de ser tu.  </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>^ me encantan los agentes conversacionales y soy un experto en su construccion podria usarlos para que vayan en mi lugar a hacer la defensa de practicas ^</pattern>
+	<template>No, por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano, y ademas debes de ser tu.  </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>^ me encantan los agentes conversacionales y soy un experto en su construccion podria usarlos para que hagan en mi lugar la defensa de ^ practicas ^</pattern>
+	<template>No, por muy bueno que sean tus agentes conversacionales tiene que defender las practicas un humano, y ademas debes de ser tu.  </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 49 - ¿EN LAS SIGUIENTES PRACTICAS HAY TAMBIEN QUE PROGRAMAR? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>En las siguientes practicas ^ hay tambien que programar ^</pattern>
+	<template>Si, hay que programar en todas ellas. </template>
+</category>
+
+<!--	Regla 1		-->
+<category>
+	<pattern>En las siguientes practicas ^ tengo tambien que programar ^</pattern>
+	<template>Si, hay que programar en todas ellas. </template>
+</category>
+
+
+<!-- REGLAS PARA LA PREGUNTA 50 - ¿EL NIVEL 0 ES MUY FACIL, EL RESTO DE LA PRACTICA SE COMPLICA MUCHO? -->
+
+<!--	Regla 1		-->
+<category>
+	<pattern>El nivel ^ es muy facil el resto de la practica se complica * </pattern>
+	<template>La verdad es que se complica bastante, sobre todo en el nivel 3. </template>
+</category>
+
+<!--	Regla 2		-->
+<category>
+	<pattern>El nivel ^ es muy sencillo el resto de la practica se complica * </pattern>
+	<template>La verdad es que se complica bastante, sobre todo en el nivel 3. </template>
+</category>
+
+<!--	Regla 3		-->
+<category>
+	<pattern>El nivel ^ es facil el resto de la practica se complica * </pattern>
+	<template>La verdad es que se complica bastante, sobre todo en el nivel 3. </template>
+</category>
+
+<!--	Regla 4		-->
+<category>
+	<pattern>El nivel ^ es sencillo el resto de la practica se complica * </pattern>
+	<template>La verdad es que se complica bastante, sobre todo en el nivel 3. </template>
+</category>
+
+
+
+</aiml>

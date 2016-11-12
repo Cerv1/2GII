@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+
+	<!-- REGLA QUE INICIA EL JUEGO EN EL QUE AVERIGUA NUESTRO PERSONAJE -->
+		<category>
+			<pattern>Vamos a jugar al Quien es Quien pero quiero que adivines tu el personaje ^</pattern>
+			<template> Vale, <set name="topic">elige</set> un personaje entonces.
+¿Tu personaje es mujer?
+				<think>
+					<set name="count">1</set>
+					<set name="list_names_lvl2">
+			                Alejandro
+			                Alfonso
+			                Antonio
+							Ivan
+							Javier
+							Juan
+							Luis
+							Marco
+							Paco
+							Pepe
+			                Cristina
+			                Gabriela
+			                Laura
+			                Maria
+			                Sofia
+			                Sonia
+			        </set>
+				</think>
+			</template>
+		</category>
+
+		<topic name="elige">
+
+			<category>
+				<pattern> DISPARA PREGUNTAS </pattern>
+				<template>
+					<condition name="count">
+						<li value="15">¡Tu personaje es <get name="list_names_lvl2"/>!</li>
+						<li><map name="questions"> <get name="count"/> </map></li>
+					</condition>
+				</template>
+			</category>
+
+
+		      <category>
+		        <pattern> Si </pattern>
+				<template>
+					<condition name="count">
+
+						<!-- REGLAS PARA ELEGIR HOMBRES -->
+							<li value="1">
+								<think>
+									<set name="hombres">0</set>
+									<set name="count">3	</set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+										<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+								</think>
+							</li>
+
+							<!-- REGLAS PARA ELEGIR MUJERES -->
+							<li value="2">
+								<think>
+									<set name="hombres">1</set>
+									<set name="count">3</set>
+									<set name="list_names_lvl2"><srai> REMOVEITEM 11 IN <get name="list_names_lvl2"/> </srai></set>
+									<set name="list_names_lvl2"><srai> REMOVEITEM 11 IN <get name="list_names_lvl2"/> </srai></set>
+									<set name="list_names_lvl2"><srai> REMOVEITEM 11 IN <get name="list_names_lvl2"/> </srai></set>
+									<set name="list_names_lvl2"><srai> REMOVEITEM 11 IN <get name="list_names_lvl2"/> </srai></set>
+									<set name="list_names_lvl2"><srai> REMOVEITEM 11 IN <get name="list_names_lvl2"/> </srai></set>
+									<set name="list_names_lvl2"><srai> REMOVEITEM 11 IN <get name="list_names_lvl2"/> </srai></set>
+								</think>
+							</li>
+
+							<!-- REGLAS PARA SEPARAR ELEGIR PELO RUBIO -->
+							<li value="3">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+											<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+											<set name="list_names_lvl2"><srai> REMOVEITEM 1 IN <get name="list_names_lvl2"/> </srai></set>
+											<set name="list_names_lvl2"><srai> REMOVEITEM 2 IN <get name="list_names_lvl2"/> </srai></set>
+											<set name="list_names_lvl2"><srai> REMOVEITEM 2 IN <get name="list_names_lvl2"/> </srai></set>
+											<set name="list_names_lvl2"><srai> REMOVEITEM 2 IN <get name="list_names_lvl2"/> </srai></set>
+											<set name="list_names_lvl2"><srai> REMOVEITEM 2 IN <get name="list_names_lvl2"/> </srai></set>
+											<set name="list_names_lvl2"><srai> REMOVEITEM 3 IN <get name="list_names_lvl2"/> </srai></set>
+										</li>
+									</condition>
+									<set name="count">8</set>
+								</think>
+								 <condition name="hombres"><li value="0">¡Ya lo tengo! ¡Tu personaje es Laura!<think><set name="topic">final</set></think></li></condition>
+								 <!--<think><set name="topic">final</set></think>-->
+							</li>
+
+							<!-- REGLAS PARA SEPARAR ELEGIR PELO MORENO -->
+							<li value="4">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set var="pos"><srai>FINDITEM Ivan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Luis IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Marco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Juan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Paco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Pepe IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Gabriela IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Laura IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Maria IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+									</condition>
+									<set name="count">8</set>
+								</think>
+							</li>
+
+							<!-- REGLAS PARA SEPARAR ELEGIR PELO ROJO -->
+							<li value="5">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set var="pos"><srai>FINDITEM Alejandro IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Alfonso IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Antonio IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Ivan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Javier IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Juan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Marco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Paco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Cristina IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Gabriela IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Laura IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sofia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sonia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+									</condition>
+									<set name="count">8</set>
+								</think>
+								<condition name="hombres">
+									<li value="0">¡Ya lo tengo! ¡Tu personaje es Maria!<think><set name="topic">final</set></think></li>
+								</condition>
+								<!--<think><set name="topic">final</set></think>-->
+							</li>
+
+							<!-- REGLAS PARA  ELEGIR PELO BLANCO -->
+							<li value="6">
+								<think>
+									<set name="count">8</set>
+								</think>
+								<condition name="hombres">
+									<li value="1">¡Ya lo tengo! ¡Tu personaje es Marco!<think><set name="topic">final</set></think></li>
+									<li value="0">¡Ya lo tengo! ¡Tu personaje es Gabriela!<think><set name="topic">final</set></think></li>
+
+								</condition>
+								<!--<think><set name="topic">final</set></think>-->
+							</li>
+
+
+							<!-- REGLAS PARA ELEGIR CALVO -->
+							<li value="7">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set var="pos"><srai>FINDITEM Alejandro IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Alfonso IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Antonio IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Ivan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Javier IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Luis IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Pepe IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Paco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+									</condition>
+									<set name="count">8</set>
+								</think>
+							</li>
+
+
+							<!-- REGLAS PARA ELEGIR LA PIEL OSCURA -->
+							<li value="8">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set var="pos"><srai>FINDITEM Alfonso IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Ivan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Marco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Luis IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Paco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Pepe IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+									</condition>
+									<set name="count">10</set>
+								</think>
+								<condition name="hombres"><li value="0">¡Ya lo tengo! ¡Tu personaje es Sonia!<think><set name="topic">final</set></think></li></condition><!--<think><set name="topic">final</set></think>-->
+							</li>
+
+							<!-- REGLAS PARA ELEGIR LA PIEL CLARA -->
+							<li value="9">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set var="pos"><srai>FINDITEM Alejandro IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Antonio IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Javier IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Juan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Sonia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+									</condition>
+									<set name="count">10</set>
+								</think>
+							</li>
+
+							<!-- REGLAS PARA ELEGIR LOS OJOS CLAROS -->
+							<li value="10">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set var="pos"><srai>FINDITEM Alejandro IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Antonio IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Javier IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Juan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Pepe IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Maria IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sofia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+									</condition>
+									<set name="count">12</set>
+								</think>
+							</li>
+
+							<!-- REGLAS PARA ELEGIR LOS OJOS OSCUROS -->
+							<li value="11">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+											<set var="pos"><srai>FINDITEM Alfonso IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Ivan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Luis IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Marco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Paco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Sonia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Cristina IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Gabriela IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Laura IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+									</condition>
+									<set name="count">12</set>
+								</think>
+							</li>
+
+							<!-- REGLAS PARA ELEGIR SI TIENE GAFAS -->
+							<li value="12">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+
+										</li>
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Cristina IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Gabriela IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Laura IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sonia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+									</condition>
+									<set name="count">13</set>
+								</think>
+								<condition name="hombres"><li value="1">¡Ya lo tengo! Tu personaje es Pepe!<think><set name="topic">final</set></think></li></condition>
+								<!--<think><set name="topic">final</set></think>-->
+							</li>
+
+							<!-- REGLAS PARA ELEGIR SI TIENE BARBA -->
+							<li value="13">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+
+											<set var="pos"><srai>FINDITEM Alejandro IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Ivan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Javier IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Juan IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Marco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Paco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Pepe IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+										</li>
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Cristina IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Gabriela IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Laura IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sonia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Maria IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sofia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+									</condition>
+									<set name="count">14</set>
+								</think>
+							</li>
+
+							<!-- REGLAS PARA ELEGIR SI TIENE BIGOTE -->
+							<li value="14">
+								<think>
+									<condition name="hombres">
+										<li value="1">
+
+											<set var="pos"><srai>FINDITEM Alejandro IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Alfonso IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Antonio IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Luis IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Paco IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+										</li>
+										<li value="0">
+											<set var="pos"><srai>FINDITEM Cristina IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Gabriela IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Laura IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sonia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Maria IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+
+											<set var="pos"><srai>FINDITEM Sofia IN <get name="list_names_lvl2"/> </srai></set>
+											<condition var="pos">
+												<li value="0"></li>
+												<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+											</condition>
+										</li>
+
+									</condition>
+									<set name="count">15</set>
+								</think>
+								¡Lo tengo¿ ¿Te puedo decir tu personaje?
+							</li>
+
+					</condition>
+
+					 <srai> DISPARA PREGUNTAS </srai>
+				  </template>
+
+
+
+			 </category>
+
+			 <category>
+				<pattern> No </pattern>
+				<template>
+					<condition name="count">
+						<li value="15">¡Tu personaje es <get name="list_names_lvl2"/>!</li>
+
+						<li value="12">
+							<think>
+								<set var="pos"><srai>FINDITEM Pepe IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+
+								<set var="pos"><srai>FINDITEM Maria IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+
+								<set var="pos"><srai>FINDITEM Sofia IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+							</think>
+						</li>
+
+						<li value="13">
+							<think>
+								<set var="pos"><srai>FINDITEM Alfonso IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+
+								<set var="pos"><srai>FINDITEM Antonio IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+
+								<set var="pos"><srai>FINDITEM Luis IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+							</think>
+						</li>
+
+						<li value="14">
+							<think>
+								<set var="pos"><srai>FINDITEM Ivan IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+
+								<set var="pos"><srai>FINDITEM Javier IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+
+								<set var="pos"><srai>FINDITEM Juan IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+
+								<set var="pos"><srai>FINDITEM Pepe IN <get name="list_names_lvl2"/> </srai></set>
+								<condition var="pos">
+									<li value="0"></li>
+									<li><set name="list_names_lvl2"><srai> REMOVEITEM <get var="pos"/> IN <get name="list_names_lvl2"/> </srai></set></li>
+								</condition>
+							</think>
+						</li>
+					</condition>
+
+					<think>
+						<set name="count">
+							<map name="successor"><get name="count"/></map>
+						</set>
+					</think>
+					<srai> DISPARA PREGUNTAS </srai>
+				</template>
+			</category>
+
+
+		</topic>
+
+
+
+
+<!-- REGLA QUE INICIA EL JUEGO EN EL QUE AVERIGUAMOS SU PERSONAJE -->
+<category>
+	<pattern>Vamos a jugar al Quien es Quien</pattern>
+	<template>
+        <think>
+            <set name="list_names">
+                Alejandro
+                Alfonso
+                Antonio
+                Cristina
+                Gabriela
+                Ivan
+                Javier
+                Juan
+                Laura
+                Luis
+                Marco
+                Maria
+                Paco
+                Pepe
+                Sofia
+                Sonia
+            </set>
+                <set var="lista"> <get name="list_names"/> </set>
+                <set var="cantidad"><srai>COUNT <get var="lista"/></srai></set>
+                <set var="pos"><srai>RANDOM <get var="cantidad"/></srai></set>
+                <set name="mi_personaje"><srai>SELECTITEM <get var="pos"/> IN <get var="lista"/></srai></set>
+            	<get name="mi_personaje"/>
+			</think>
+Okay, ya he elegido mi personaje. ¡Te toca acertarlo!
+     </template>
+</category>
+
+
+<!-- REGLA PARA INTENTAR ACERTAR EL PERSONAJE -->
+<category>
+    <pattern> Tu personaje es *</pattern>
+    <template>
+		<think>
+	        <set var="result">
+	            <srai> COMPARE <get name="mi_personaje"/> WITH <star/> </srai>
+	        </set>
+		</think>
+        <condition var="result">
+	        <li value="yes"> ¡ENHORABUENA! ¡Has acertado mi personaje! </li>
+			<li value="no"> Te has equivocado aj aj. </li>
+    	</condition>
+    </template>
+</category>
+
+
+<!-- REGLA PARA EL COLOR DE PIEL -->
+<category>
+	<pattern>^ tiene la piel *</pattern>
+	<template>
+		<think>
+			<set var="resultado"><map name="piel"><get name="mi_personaje"/></map></set>
+			<set var="result"> <srai> COMPARE <get var="resultado"/> WITH <star index="2"/> </srai></set>
+		</think>
+		<condition var="result">
+	        <li value="yes"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+
+<!-- REGLA PARA EL COLOR DE PELO -->
+<category>
+	<pattern>^ tiene el pelo *</pattern>
+	<template>
+		<think>
+			<set var="resultado"><map name="pelo"><get name="mi_personaje"/></map></set>
+			<set var="result"> <srai> COMPARE <get var="resultado"/> WITH <star index="2"/> </srai></set>
+		</think>
+		<condition var="result">
+	        <li value="yes"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+<!-- REGLA PARA LOS CALVITOS -->
+<category>
+	<pattern>^ tiene pelo ^</pattern>
+	<template>
+		<think>
+			<set var="resultado"><map name="pelo"><get name="mi_personaje"/></map></set>
+			<set var="result"> <srai> COMPARE <get var="resultado"/> WITH <star index="2"/> </srai></set>
+		</think>
+		<condition var="resultado">
+	        <li value="Calvo"> No, es calvito.</li>
+			<li> Si que tiene pelo. </li>
+		</condition>
+	</template>
+</category>
+
+<!-- REGLA PARA EL COLOR DE OJOS -->
+<category>
+	<pattern>^ tiene los ojos *</pattern>
+	<template>
+		<think>
+			<set var="resultado"><map name="ojos"><get name="mi_personaje"/></map></set>
+			<set var="result"> <srai> COMPARE <get var="resultado"/> WITH <star index="2"/> </srai></set>
+		</think>
+		<condition var="result">
+	        <li value="yes"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+
+<!-- REGLA PARA VER SI TIENE GAFAS -->
+<category>
+	<pattern>^ tiene gafas ^</pattern>
+	<template>
+		<think>
+			<set var="resultado"><map name="gafas"><get name="mi_personaje"/></map></set>
+		</think>
+		<condition var="resultado">
+	        <li value="si"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+
+<!-- REGLA PARA VER SI TIENE BIGOTE -->
+<category>
+	<pattern>^ tiene bigote ^</pattern>
+	<template>
+		<think>
+			<set var="resultado"><map name="bigote"><get name="mi_personaje"/></map></set>
+		</think>
+		<condition var="resultado">
+	        <li value="si"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+
+<!-- REGLA PARA VER SI TIENE BARBA -->
+<category>
+	<pattern>^ tiene barba ^</pattern>
+	<template>
+		<think>
+			<set var="resultado"><map name="barba"><get name="mi_personaje"/></map></set>
+		</think>
+		<condition var="resultado">
+	        <li value="si"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+
+<!-- REGLA PARA VER SI ES MUJER -->
+<category>
+	<pattern>^ es mujer ^</pattern>
+	<template>
+		<think>
+			<set var="genero"><map name="genero"><get name="mi_personaje"/></map></set>
+			<set var="result"> <srai> COMPARE <get var="genero"/> WITH mujer </srai></set>
+		</think>
+		<condition var="result">
+	        <li value="yes"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+
+<!-- REGLA PARA VER SI ES HOMBRE -->
+<category>
+	<pattern>^ es hombre</pattern>
+	<template>
+		<think>
+			<set var="genero"><map name="genero"><get name="mi_personaje"/></map></set>
+			<set var="result"> <srai> COMPARE <get var="genero"/> WITH hombre </srai></set>
+		</think>
+		<condition var="result">
+	        <li value="yes"> Correcto.</li>
+			<li value="no"> Nope. </li>
+		</condition>
+	</template>
+</category>
+
+
+</aiml>
